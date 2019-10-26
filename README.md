@@ -13,7 +13,7 @@
 
 ### sql
     ``` 
-      数据库表字段 tab_filed: 见iTaobao_user.sql文件
+      数据库表字段 tab_filed: 见itaobao.sql文件
     ```
     
 ### 相关信息：
