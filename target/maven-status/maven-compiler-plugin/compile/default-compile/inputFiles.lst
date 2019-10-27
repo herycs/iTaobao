@@ -1,6 +1,7 @@
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Collect.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Bus_detail.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\History.java
+D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\User_Role.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\RoleDao.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Role_premission.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\CategoryDao.java
@@ -28,8 +29,10 @@ D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Repertory.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\CreditsDao.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\HistoryDao.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\test\Usertest.java
-D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\syslog.java
+D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Syslog.java
+D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\service\RoleService.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\domain\Role.java
+D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\service\impl\RoleServiceImpl.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\ProductDao.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\util\UuidUtil.java
 D:\IdeaProgectWorkSpace\iTaobao\src\main\java\com\w\dao\FavourableDao.java

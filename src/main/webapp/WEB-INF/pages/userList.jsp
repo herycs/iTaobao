@@ -12,8 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-    <c:forEach items="userInfos" var="userInfo">
-        ${userInfo.username}
+    <c:forEach items="${users}" var="userInfo">
+        ${userInfo.username}+<br>
     </c:forEach>
 </body>
 </html>

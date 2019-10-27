@@ -4,10 +4,13 @@ import com.w.domain.UserInfo;
 import com.w.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -25,26 +28,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String validateCode, @ModelAttribute UserInfo userInfo, HttpSession session){
-        System.out.println(userInfo.toString());
-        System.out.println("前台验证码为："+session.getAttribute("back_configcode"));
-        //检验验证码
-        if (validateCode.equalsIgnoreCase((String) session.getAttribute("back_configcode"))) {
-            UserInfo userInfo1 = userService.login(userInfo);
-            //登录检测
-            if(userInfo1 == null){
-                session.setAttribute("user", userInfo1);
-                return "ok";
-            }
-            System.out.println("用户不存在");
-        }
-        System.out.println("验证码错误");
-        return "error";
-    }
-
-    @RequestMapping("/register")
-    public String register(@ModelAttribute UserInfo userInfo, HttpSession session){
+    @RequestMapping(value = "/register.do",method = RequestMethod.POST)
+    public String register(@ModelAttribute UserInfo userInfo, HttpSession session) throws Exception {
         int reg_result = userService.register(userInfo);
         if (1 == reg_result){
             //用户注册成功
@@ -57,8 +42,7 @@ public class UserController {
         return "error";
     }
 
-
-    @RequestMapping("/active")
+    @RequestMapping("/active.do")
     public String activeUser(String activeCode){
         int active = userService.active(activeCode);
         if (active > 0) {
@@ -69,16 +53,15 @@ public class UserController {
         return "error";
     }
 
-    @RequestMapping("/findAll")
-    public String findAll(HttpSession session){
+    @RequestMapping("/findAll.do")
+    public ModelAndView findAll(){
+        ModelAndView modelAndView=new ModelAndView();
         List<UserInfo> userInfos = userService.findAll();
-        session.setAttribute("users", userInfos);
-        return "userList";
-    }
-
-    @RequestMapping("logout")
-    public String logout(){
-
-        return "login";
+        for(UserInfo u: userInfos){
+            System.out.println(u.toString());
+        }
+        modelAndView.addObject("users",userInfos);
+        modelAndView.setViewName("userList");
+        return modelAndView;
     }
 }

@@ -19,7 +19,7 @@ import java.util.List;
 //        primary key (roleID)
 //        );
 
-public class Role implements Serializable {
+public class Role{
 
     private String roleID;
     private String roleName;

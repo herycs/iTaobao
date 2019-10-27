@@ -12,31 +12,17 @@
 </head>
 <body>
     <h1>登录</h1>
-<%--    <form action="/login" method="post">--%>
-<%--        <div>--%>
-<%--            <span>用户名：</span>--%>
-<%--            <input type="text" name="username" id="username">--%>
-<%--        </div>--%>
-<%--        <div>--%>
-<%--            <span>密码：</span>--%>
-<%--            <input type="password" name="password" id="password">--%>
-<%--        </div>--%>
-<%--        <idv>--%>
-<%--            <span>邮箱：</span>--%>
-<%--            <input type="text" name="email" id="email">--%>
-<%--        </idv>--%>
-<%--        <div>--%>
 <%--            <span>验证码：</span>--%>
 <%--            <img src="code/validateCode" alt="">--%>
-<%--            <input type="text" name="validateCode" id="code">--%>
-<%--        </div>--%>
-<%--        <input type="submit" id="submit">--%>
-<%--    </form>--%>
+
     <form action="login" method="post">
-        <input type="text" name="username">
-        <input type="text" name="password">
+        <input type="text" name="username"><br>
+        <input type="text" name="password"><br>
+        <div>
+            <img src="code/validateCode.do" alt="验证码">
+        </div><br>
         <input type="reset" value="重置">
-        <input type="submit" name="submit" value="login">
+        <input type="submit" name="submit" value="login"><br>
     </form>
 </body>
 </html>

@@ -1,23 +1,20 @@
 package com.w.service.impl;
 
-import com.w.dao.RoleDao;
 import com.w.dao.UserDao;
 import com.w.domain.Role;
 import com.w.domain.UserInfo;
 import com.w.service.UserService;
 import com.w.util.UuidUtil;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -32,18 +29,11 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserInfo login(UserInfo userInfo) {
-        UserInfo userInfo1 = userDao.findUser(userInfo);
-        if(userInfo1 != null){
-            return userInfo1;
-        }
-        return null;
-    }
-
-    @Override
-    public int register(UserInfo userInfo) {
+    public int register(UserInfo userInfo) throws Exception{
         /*
         * -1：用户注册失败
         * 1：用户注册成功
@@ -53,6 +43,7 @@ public class UserServiceImpl implements UserService {
         if (userInfo1 != null) {
             return -1;
         }
+        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
         //设置激活码
         userInfo1.setCode(UuidUtil.getUuid());
         //设置激活状态
@@ -93,17 +84,15 @@ public class UserServiceImpl implements UserService {
         return 0;
     }
 
-    @RequestMapping("/login")
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         UserInfo userInfo = null;
         userInfo = userDao.findUserByName(name);
-        System.out.println("查询出的用户信息是"+userInfo.toString());
         List<Role> roles = userInfo.getRoles();
-        List<SimpleGrantedAuthority> authoritys = this.getAuthority(roles);
+        List<SimpleGrantedAuthority> authoritys = getAuthority(roles);
         User user = new User(userInfo.getUsername(),
                 "{noop}"+userInfo.getPassword(),
-                userInfo.getStatus() == 0?false:true,
+                userInfo.getStatus() == 0 ? false:true,
                 true,
                 true,
                 true,

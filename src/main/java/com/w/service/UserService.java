@@ -13,10 +13,8 @@ import java.util.List;
  * @Version V1.0b
  **/
 public interface UserService extends UserDetailsService {
-//    登录
-    UserInfo login(UserInfo userInfo);
 //    注册
-    int register(UserInfo userInfo);
+    int register(UserInfo userInfo) throws Exception;
 //    激活
     int active(String active);
 //    查找所有
