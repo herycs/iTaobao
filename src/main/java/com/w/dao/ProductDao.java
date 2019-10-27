@@ -1,7 +1,6 @@
 package com.w.dao;
 
 import com.w.domain.Product;
-import com.w.domain.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;

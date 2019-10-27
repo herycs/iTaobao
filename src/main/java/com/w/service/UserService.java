@@ -1,8 +1,7 @@
 package com.w.service;
 
-import com.w.domain.User;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.w.domain.UserInfo;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
@@ -13,19 +12,19 @@ import java.util.List;
  * @Date2019/10/18 10:35
  * @Version V1.0b
  **/
-public interface UserService {
+public interface UserService extends UserDetailsService {
 //    登录
-    User login(User user);
+    UserInfo login(UserInfo userInfo);
 //    注册
-    int register(User user);
+    int register(UserInfo userInfo);
 //    激活
     int active(String active);
 //    查找所有
-    List<User> findAll();
+    List<UserInfo> findAll();
 //    查找指定用户
-    List<User> findUserBySomething();
+    List<UserInfo> findUserBySomething();
 //    修改用户信息
-    int updateUser(User user);
+    int updateUser(UserInfo userInfo);
 //    删除用户
-    int deleteUser(User user);
+    int deleteUser(UserInfo userInfo);
 }

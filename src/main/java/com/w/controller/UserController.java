@@ -1,7 +1,6 @@
 package com.w.controller;
 
-import cn.dsna.util.images.ValidateCode;
-import com.w.domain.User;
+import com.w.domain.UserInfo;
 import com.w.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -21,22 +19,22 @@ import java.util.List;
  * @Version V1.0
  **/
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(String validateCode, @ModelAttribute User user, HttpSession session){
-        System.out.println(user.toString());
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(String validateCode, @ModelAttribute UserInfo userInfo, HttpSession session){
+        System.out.println(userInfo.toString());
         System.out.println("前台验证码为："+session.getAttribute("back_configcode"));
-//        检验验证码
+        //检验验证码
         if (validateCode.equalsIgnoreCase((String) session.getAttribute("back_configcode"))) {
-            User user1 = userService.login(user);
-//            登录检测
-            if(user1 == null){
-                session.setAttribute("user", user1);
+            UserInfo userInfo1 = userService.login(userInfo);
+            //登录检测
+            if(userInfo1 == null){
+                session.setAttribute("user", userInfo1);
                 return "ok";
             }
             System.out.println("用户不存在");
@@ -46,16 +44,16 @@ public class UserController {
     }
 
     @RequestMapping("/register")
-    public String register(@ModelAttribute User user, HttpSession session){
-        int reg_result = userService.register(user);
+    public String register(@ModelAttribute UserInfo userInfo, HttpSession session){
+        int reg_result = userService.register(userInfo);
         if (1 == reg_result){
-//            用户注册成功
+            //用户注册成功
             return "ok";
         }else if (-1 == reg_result){
-//            用户已存在
+            //用户已存在
             return "error";
         }
-//        用户注册失败,联系管理员
+        //用户注册失败,联系管理员
         return "error";
     }
 
@@ -64,16 +62,23 @@ public class UserController {
     public String activeUser(String activeCode){
         int active = userService.active(activeCode);
         if (active > 0) {
-//            用户激活成功
+            //用户激活成功
             return "ok";
         }
-//        用户激活失败
+        //用户激活失败
         return "error";
     }
 
     @RequestMapping("/findAll")
-    public void findAll(HttpSession session){
-        List<User> userList = userService.findAll();
-        session.setAttribute("uses", userList);
+    public String findAll(HttpSession session){
+        List<UserInfo> userInfos = userService.findAll();
+        session.setAttribute("users", userInfos);
+        return "userList";
+    }
+
+    @RequestMapping("logout")
+    public String logout(){
+
+        return "login";
     }
 }

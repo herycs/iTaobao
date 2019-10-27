@@ -9,28 +9,24 @@ package com.w.domain;
  **/
 
 //create table role_premission
-////        (
-////        role_per_ID          int not null,
-////        roleID               varchar(50),
-////        permissionID         int,
-////        role_id              varchar(50),
-////        permission_id        varchar(50),
-////        primary key (role_per_ID)
-////        );
+//        (
+//        role_preID           int not null,
+//        roleID               varchar(50),
+//        permissionID         int,
+//        primary key (role_preID)
+//);
 public class Role_premission {
 
-    Integer role_per_ID;
+    Integer role_preID;
     String roleID;
     Integer permissionID;
-    String role_id;
-    String permission_id;
 
-    public Integer getRole_per_ID() {
-        return role_per_ID;
+    public Integer getRole_preID() {
+        return role_preID;
     }
 
-    public void setRole_per_ID(Integer role_per_ID) {
-        this.role_per_ID = role_per_ID;
+    public void setRole_preID(Integer role_preID) {
+        this.role_preID = role_preID;
     }
 
     public String getRoleID() {
@@ -47,21 +43,5 @@ public class Role_premission {
 
     public void setPermissionID(Integer permissionID) {
         this.permissionID = permissionID;
-    }
-
-    public String getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(String role_id) {
-        this.role_id = role_id;
-    }
-
-    public String getPermission_id() {
-        return permission_id;
-    }
-
-    public void setPermission_id(String permission_id) {
-        this.permission_id = permission_id;
     }
 }

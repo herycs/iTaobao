@@ -1,0 +1,37 @@
+2019-10-27 16:35:20,912 0      [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - ==>  Preparing: select * from role 
+2019-10-27 16:35:20,945 33     [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - ==> Parameters: 
+2019-10-27 16:35:20,963 51     [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - <==      Total: 2
+2019-10-27 16:35:53,055 0      [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - ==>  Preparing: select * from role 
+2019-10-27 16:35:53,082 27     [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - ==> Parameters: 
+2019-10-27 16:35:53,101 46     [           main] DEBUG  com.w.dao.RoleDao.findAllRole  - <==      Total: 2
+2019-10-27 16:36:13,522 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select * from user_role where userID = ? 
+2019-10-27 16:36:13,554 32     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(String)
+2019-10-27 16:36:56,670 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select * from user_role where userID = ? 
+2019-10-27 16:36:56,698 28     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(String)
+2019-10-27 16:37:14,953 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where 1=1 
+2019-10-27 16:37:14,988 35     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 
+2019-10-27 16:37:15,007 54     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2
+2019-10-27 16:37:28,044 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID = 1 
+2019-10-27 16:37:28,072 28     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 
+2019-10-27 16:37:28,091 47     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 1
+2019-10-27 16:38:07,434 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID = ? 
+2019-10-27 16:38:07,469 35     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:38:07,490 56     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 1
+2019-10-27 16:38:59,534 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in select * from user_role where userID = ? 
+2019-10-27 16:38:59,561 27     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:51:10,778 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in select * from user_role where userID = ? 
+2019-10-27 16:51:10,808 30     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:51:32,885 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select * from user_role where userID = ?) 
+2019-10-27 16:51:32,931 46     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:52:56,280 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select RoleName from role where roleID in (select roleID from user_role where userID = ?) 
+2019-10-27 16:52:56,311 31     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:52:56,331 51     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2
+2019-10-27 16:53:22,460 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select roleID from user_role where userID = ?) 
+2019-10-27 16:53:22,490 30     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:53:22,511 51     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2
+2019-10-27 16:54:14,833 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select roleID from user_role where userID = ?) 
+2019-10-27 16:54:14,866 33     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 16:54:14,888 55     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2
+2019-10-27 17:07:57,418 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select roleID from user_role where userID = ?) 
+2019-10-27 17:07:57,446 28     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
+2019-10-27 17:07:57,464 46     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2

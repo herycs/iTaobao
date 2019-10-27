@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/10/24 17:10:55                          */
+/* Created on:     2019/10/27 16:48:56                          */
 /*==============================================================*/
 
 
@@ -41,6 +41,8 @@ drop table if exists role_premission;
 drop table if exists syslog;
 
 drop table if exists user;
+
+drop table if exists user_role;
 
 /*==============================================================*/
 /* Table: announcement                                          */
@@ -203,7 +205,7 @@ create table pro_detail
 (
    detail_ID            int not null comment '折扣详情，针对什么商品，达到什么要求，折扣多少',
    pro_ID               int,
-   datil_data           varchar(100),
+   detail_data          varchar(100),
    detail_class         char(1),
    primary key (detail_ID)
 );
@@ -254,12 +256,10 @@ create table role
 /*==============================================================*/
 create table role_premission
 (
-   role_per_ID          int not null,
+   role_preID           int not null,
    roleID               varchar(50),
    permissionID         int,
-   role_id              varchar(50),
-   permission_id        varchar(50),
-   primary key (role_per_ID)
+   primary key (role_preID)
 );
 
 /*==============================================================*/
@@ -292,6 +292,17 @@ create table user
    status               char(1),
    code                 varchar(100),
    primary key (userID)
+);
+
+/*==============================================================*/
+/* Table: user_role                                             */
+/*==============================================================*/
+create table user_role
+(
+   user_roleID          int not null,
+   userID               int,
+   roleID               varchar(50),
+   primary key (user_roleID)
 );
 
 alter table business add constraint FK_Relationship_12 foreign key (bus_detail_ID)
@@ -335,4 +346,10 @@ alter table role_premission add constraint FK_Relationship_13 foreign key (roleI
 
 alter table role_premission add constraint FK_Relationship_14 foreign key (permissionID)
       references permission (permissionID) on delete restrict on update restrict;
+
+alter table user_role add constraint FK_Relationship_15 foreign key (roleID)
+      references role (roleID) on delete restrict on update restrict;
+
+alter table user_role add constraint FK_Relationship_16 foreign key (userID)
+      references user (userID) on delete restrict on update restrict;
 

@@ -1,5 +1,7 @@
 package com.w.domain;
 
+import java.util.List;
+
 /**
  * @ClassNamePermission
  * @Description
@@ -18,9 +20,19 @@ package com.w.domain;
 
 public class Permission {
 
-    Integer permissionID;
-    String permissionName;
-    String permissionUrl;
+    private Integer permissionID;
+    private String permissionName;
+    private String permissionUrl;
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
+
+    private List<Role> roleList;
 
     public Integer getPermissionID() {
         return permissionID;
@@ -45,4 +57,5 @@ public class Permission {
     public void setPermissionUrl(String permissionUrl) {
         this.permissionUrl = permissionUrl;
     }
+
 }

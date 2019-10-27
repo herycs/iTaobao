@@ -1,5 +1,8 @@
 package com.w.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * @ClassNamerole
  * @Description
@@ -16,11 +19,23 @@ package com.w.domain;
 //        primary key (roleID)
 //        );
 
-public class role {
+public class Role implements Serializable {
 
-    String roleID;
-    String roleName;
-    String roleDescribe;
+    private String roleID;
+    private String roleName;
+    private String roleDescribe;
+    private List<Permission> permissionList;
+    private List<UserInfo> userInfoList;
+
+    public List<UserInfo> getUserInfoInfoList() {
+        return userInfoInfoList;
+    }
+
+    public void setUserInfoInfoList(List<UserInfo> userInfoInfoList) {
+        this.userInfoInfoList = userInfoInfoList;
+    }
+
+    private List<UserInfo> userInfoInfoList;
 
     public String getRoleID() {
         return roleID;
@@ -44,5 +59,32 @@ public class role {
 
     public void setRoleDescribe(String roleDescribe) {
         this.roleDescribe = roleDescribe;
+    }
+
+    public List<Permission> getPermissionList() {
+        return permissionList;
+    }
+
+    public void setPermissionList(List<Permission> permissionList) {
+        this.permissionList = permissionList;
+    }
+
+    public List<UserInfo> getUserInfoList() {
+        return userInfoList;
+    }
+
+    public void setUserInfoList(List<UserInfo> userInfoList) {
+        this.userInfoList = userInfoList;
+    }
+    @Override
+    public String toString() {
+        return "Role{" +
+                "roleID='" + roleID + '\'' +
+                ", roleName='" + roleName + '\'' +
+                ", roleDescribe='" + roleDescribe + '\'' +
+                ", permissionList=" + permissionList +
+                ", userInfoList=" + userInfoList +
+                ", userInfoInfoList=" + userInfoInfoList +
+                '}';
     }
 }

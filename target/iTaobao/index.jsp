@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/logout">登出</a>
     <a href="login.jsp">登录</a>
     <a href="register.jsp">注册</a>
     <a href="userList.jsp">查询所有</a>
