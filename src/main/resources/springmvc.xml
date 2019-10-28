@@ -21,6 +21,15 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--国际化拦击器-->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+    </mvc:interceptors>
+    <!--国际化语言配置-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="en_US"></property>
+    </bean>
+
     <!--过滤静态资源-->
     <mvc:resources location="/css/" mapping="/css/**" />
     <mvc:resources location="/images/" mapping="/images/**" />

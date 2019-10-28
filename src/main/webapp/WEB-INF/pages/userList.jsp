@@ -13,7 +13,7 @@
 </head>
 <body>
     <c:forEach items="${users}" var="userInfo">
-        ${userInfo.username}+<br>
+        ${userInfo.username}<br>
     </c:forEach>
 </body>
 </html>

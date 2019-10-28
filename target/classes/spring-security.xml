@@ -14,7 +14,7 @@
 
     <security:http auto-config="true" use-expressions="false">
         <!-- 配置拦截路径及通行权限 -->
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
+<!--        <security:intercept-url pattern="/**" access="ROLE_USER" />-->
         <!--
             login-page 自定义登陆页面
             authentication-failure-url 用户名密码错误

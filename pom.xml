@@ -25,6 +25,8 @@
     <druid.version>1.1.11</druid.version>
     <jackson.version>2.4.5</jackson.version>
     <spring.security.version>5.0.6.RELEASE</spring.security.version>
+    <validation.version>1.1.0.Final</validation.version>
+    <hibernate.version>4.3.0.Final</hibernate.version>
   </properties>
 
   <dependencies>
@@ -192,6 +194,18 @@
       <artifactId>spring-security-config</artifactId>
       <version>${spring.security.version}</version>
     </dependency>
+<!--    验证器-->
+<!--    <dependency>-->
+<!--      <groupId>org.hibernate</groupId>-->
+<!--      <artifactId>hibernate-validator</artifactId>-->
+<!--      <version>${hibernate.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>javax.validation</groupId>-->
+<!--      <artifactId>validation-api</artifactId>-->
+<!--      <version>${validation.version}</version>-->
+<!--    </dependency>-->
+
   </dependencies>
 
   <build>

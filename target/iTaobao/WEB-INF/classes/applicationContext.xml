@@ -15,14 +15,18 @@
 
 
 
-<!--开启注解的扫描，com.w.controller.service-->
+    <!--开启注解的扫描，com.w.controller.service-->
     <context:component-scan base-package="com.w" >
         <!--配置哪些注解不扫描-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
 
-<!--    Spring整合MyBatis框架-->
-    <!--    druid-->
+    <!-- 国际化配置 -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages"></property>
+    </bean>
+
+    <!--Spring整合MyBatis框架-->
     <!-- 读取jdbc.properties配置文件 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -66,24 +70,24 @@
             <property name="logAbandoned" value="${logAbandoned}" />
             <!-- 监控数据库 -->
             <property name="filters" value="stat" />
-<!--            <property name="filters" value="wall" />-->
+            <!--<property name="filters" value="wall" />-->
         </bean>
 
-    <!--配置SqlSessionFactory工厂-->
+        <!--配置SqlSessionFactory工厂-->
         <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
             <property name="dataSource" ref="dataSource" />
         </bean>
-    <!--    com.w.dao-->
+        <!--    com.w.dao-->
         <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
             <property name="basePackage" value="com.w.dao"/>
         </bean>
 
-<!--    事务-->
-    <!--配置事务管理器-->
+        <!--    事务-->
+        <!--配置事务管理器-->
         <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
             <property name="dataSource" ref="dataSource" />
         </bean>
-    <!--配置事务通知-->
+        <!--配置事务通知-->
         <tx:advice id="txAdvice" transaction-manager="transactionManager">
             <tx:attributes>
                 <tx:method name="find*" read-only="true"/>
@@ -91,7 +95,7 @@
             </tx:attributes>
         </tx:advice>
 
-<!--    aop增强-->
+        <!--    aop增强-->
         <aop:config>
             <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.w.service.impl.*ServiceImpl.*(..))"/>
         </aop:config>
