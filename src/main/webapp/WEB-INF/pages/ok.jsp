@@ -19,5 +19,15 @@
     用户自定义语言：<spring:message code="hello" text="未获取到国际化语言配置"/>
     国际化后语言显示：
     <spring:message code="hello" text="未获取到国际化语言配置"/>
+    <br>
+
+    <c:choose>
+        <c:when test="${file == 'success'}">
+            文件:${file.desc}上传成功
+        </c:when>
+        <c:otherwise>
+            文件:${file.desc}上传失败
+        </c:otherwise>
+    </c:choose>
 </body>
 </html>

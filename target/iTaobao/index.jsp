@@ -20,5 +20,14 @@
     用户自定义国际化:
     <a href="changeLanguage.do?locale=en_US">英语</a>
     <a href="changeLanguage.do?locale=zh_CN">中文</a>
+    <br>
+    <form action="upload.do" method="post" enctype="multipart/form-data">
+        文件：<input type="file" name="file"><br>
+        文件描述：<input type="text" name="desc"><br>
+        <input type="submit" value="点击上传">
+    </form>
+    <br>
+    <a href="showFiles.do">下载文件界面</a>
+
 </body>
 </html>

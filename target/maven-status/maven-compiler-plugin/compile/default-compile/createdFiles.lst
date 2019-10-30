@@ -2,10 +2,14 @@ com\w\controller\ValidateCode.class
 com\w\domain\Favourable.class
 com\w\util\JedisUtil.class
 com\w\util\MailUtils.class
+com\w\controller\DateTestController.class
 com\w\dao\AnnouncementDao.class
 com\w\dao\BusinessDao.class
 com\w\domain\Credits.class
+com\w\controller\FileDownloadTest.class
 com\w\service\UserService.class
+com\w\formatter\MyDateFormatter.class
+com\w\controller\FileUploadTest.class
 com\w\dao\ManagerDao.class
 com\w\domain\Bus_detail.class
 com\w\dao\CollectDao.class
@@ -15,6 +19,7 @@ com\w\domain\Role.class
 com\w\dao\RoleDao.class
 com\w\domain\Collect.class
 com\w\domain\Role_premission.class
+com\w\controller\UserLanguageController.class
 com\w\domain\Repertory.class
 com\w\domain\Product.class
 com\w\domain\Business.class
@@ -34,6 +39,7 @@ com\w\domain\Category.class
 com\w\domain\Manager.class
 com\w\dao\UserDao.class
 com\w\controller\UserController.class
+com\w\domain\FilePOJO.class
 com\w\dao\FavourableDao.class
 com\w\test\Usertest.class
 com\w\util\UuidUtil.class
