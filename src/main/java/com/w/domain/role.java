@@ -1,6 +1,5 @@
 package com.w.domain;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -25,17 +24,17 @@ public class Role{
     private String roleName;
     private String roleDescribe;
     private List<Permission> permissionList;
-    private List<UserInfo> userInfoList;
+    private List<IUser> IUserList;
 
-    public List<UserInfo> getUserInfoInfoList() {
-        return userInfoInfoList;
+    public List<IUser> getIUserInfoList() {
+        return IUserInfoList;
     }
 
-    public void setUserInfoInfoList(List<UserInfo> userInfoInfoList) {
-        this.userInfoInfoList = userInfoInfoList;
+    public void setIUserInfoList(List<IUser> IUserInfoList) {
+        this.IUserInfoList = IUserInfoList;
     }
 
-    private List<UserInfo> userInfoInfoList;
+    private List<IUser> IUserInfoList;
 
     public String getRoleID() {
         return roleID;
@@ -69,12 +68,12 @@ public class Role{
         this.permissionList = permissionList;
     }
 
-    public List<UserInfo> getUserInfoList() {
-        return userInfoList;
+    public List<IUser> getIUserList() {
+        return IUserList;
     }
 
-    public void setUserInfoList(List<UserInfo> userInfoList) {
-        this.userInfoList = userInfoList;
+    public void setIUserList(List<IUser> IUserList) {
+        this.IUserList = IUserList;
     }
     @Override
     public String toString() {
@@ -83,8 +82,8 @@ public class Role{
                 ", roleName='" + roleName + '\'' +
                 ", roleDescribe='" + roleDescribe + '\'' +
                 ", permissionList=" + permissionList +
-                ", userInfoList=" + userInfoList +
-                ", userInfoInfoList=" + userInfoInfoList +
+                ", userInfoList=" + IUserList +
+                ", userInfoInfoList=" + IUserInfoList +
                 '}';
     }
 }

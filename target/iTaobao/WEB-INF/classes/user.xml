@@ -31,4 +31,5 @@
     <mappers>
         <package name="com.w.dao"></package>
     </mappers>
+
 </configuration>

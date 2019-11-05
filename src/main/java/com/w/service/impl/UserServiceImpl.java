@@ -1,9 +1,11 @@
 package com.w.service.impl;
 
-import com.w.dao.UserDao;
+import com.w.dao.IUserDao;
+import com.w.dao.UserRoleDao;
+import com.w.domain.IUser;
 import com.w.domain.Role;
-import com.w.domain.UserInfo;
 import com.w.service.UserService;
+import com.w.util.MailUtils;
 import com.w.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,35 +29,51 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private IUserDao IUserDao;
+
+    @Autowired
+    private UserRoleDao userRoleDao;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public int register(UserInfo userInfo) throws Exception{
+    public int register(IUser IUser) throws Exception{
         /*
         * -1：用户注册失败
         * 1：用户注册成功
         * */
-        UserInfo userInfo1 = userDao.findUserByName(userInfo.getUsername());
+        IUser IUser1 = IUserDao.findUserByName(IUser.getUsername());
         //账户已存在
-        if (userInfo1 != null) {
+        if (IUser1 != null) {
+            System.out.println("用户存在");
             return -1;
         }
-        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
+        IUser.setPassword(bCryptPasswordEncoder.encode(IUser.getPassword()));
         //设置激活码
-        userInfo1.setCode(UuidUtil.getUuid());
+        IUser.setCode(UuidUtil.getUuid());
         //设置激活状态
-        userInfo1.setStatus(0);
-        userDao.save(userInfo);
+        IUser.setStatus(0);
+        int save_result = IUserDao.save(IUser);
+        if(save_result != 1){
+            System.out.println("注册失败");
+            return -1;
+        }else{
+            String IP = "192.168.1.244";
+            String mailText = "<h1>这是来自iTaobao商城的一封注册邮件，<a href='localhost:8080/active.do?activeCode="+IUser.getCode()+"'>点击激活</a>您的账号,若非本人操作请忽略</h1>";
+            MailUtils.sendMail(IUser.getEmail(), mailText, "激活邮件");
+            System.out.println("注册成功");
+        }
         return 1;
     }
 
     @Override
     public int active(String activeCode) {
-        UserInfo userInfo = userDao.findByActiveCode(activeCode);
-        if (userInfo != null) {
-            int active = userDao.active(activeCode);
+        IUser IUser = IUserDao.findByActiveCode(activeCode);
+        if (IUser != null) {
+            //添加用户身份
+            userRoleDao.addRoleForUser(IUser.getUserID(), 1);
+            int active = IUserDao.active(activeCode);
             if (active == 0) {
                 return 1;
             }
@@ -65,34 +82,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserInfo> findAll() {
-        return userDao.findAll();
+    public List<IUser> findAll() {
+        return IUserDao.findAll();
     }
 
     @Override
-    public List<UserInfo> findUserBySomething() {
+    public List<IUser> findUserBySomething() {
         return null;
     }
 
     @Override
-    public int updateUser(UserInfo userInfo) {
+    public int updateUser(IUser IUser) {
         return 0;
     }
 
     @Override
-    public int deleteUser(UserInfo userInfo) {
+    public int deleteUser(IUser IUser) {
         return 0;
     }
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        UserInfo userInfo = null;
-        userInfo = userDao.findUserByName(name);
-        List<Role> roles = userInfo.getRoles();
+        IUser IUser = null;
+        IUser = IUserDao.findUserByName(name);
+        List<Role> roles = IUser.getRoles();
         List<SimpleGrantedAuthority> authoritys = getAuthority(roles);
-        User user = new User(userInfo.getUsername(),
-                "{noop}"+userInfo.getPassword(),
-                userInfo.getStatus() == 0 ? false:true,
+        User user = new User(IUser.getUsername(),
+                IUser.getPassword(),
+                IUser.getStatus() == 0 ? false:true,
                 true,
                 true,
                 true,

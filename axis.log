@@ -35,3 +35,44 @@
 2019-10-27 17:07:57,418 0      [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==>  Preparing: select * from role where roleID in (select roleID from user_role where userID = ?) 
 2019-10-27 17:07:57,446 28     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - ==> Parameters: 1(Integer)
 2019-10-27 17:07:57,464 46     [           main] DEBUG om.w.dao.RoleDao.findRolesByID  - <==      Total: 2
+2019-11-04 19:40:33,672 0      [           main] DEBUG        com.w.dao.IUserDao.save  - ==>  Preparing: insert into user(userID, username, password) values(?, ?, ?) 
+2019-11-04 19:42:06,732 0      [           main] DEBUG        com.w.dao.IUserDao.save  - ==>  Preparing: insert into user(userID, username, password) values(?, ?, ?) 
+2019-11-04 19:49:13,965 0      [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==>  Preparing: select * from user 
+2019-11-04 19:49:14,001 36     [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==> Parameters: 
+2019-11-04 19:49:14,047 82     [           main] DEBUG     com.w.dao.IUserDao.findAll  - <==      Total: 2
+2019-11-04 19:52:40,422 0      [           main] DEBUG  com.w.dao.IUserDao.updateUser  - ==>  Preparing: update user set username = ? ,password = ?, sex = ?, birthday = ?, telephone = ?, email = ? where userID = ? 
+2019-11-04 19:54:39,195 0      [           main] DEBUG  com.w.dao.IUserDao.updateUser  - ==>  Preparing: update user set username = ? ,password = ?, sex = ?, birthday = ?, telephone = ?, email = ? where userID = ? 
+2019-11-04 19:59:56,549 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: select * from user where userID = ? 
+2019-11-04 19:59:56,580 31     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 1(Integer)
+2019-11-04 19:59:56,611 62     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==      Total: 1
+2019-11-04 20:06:07,514 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: select * from user where userID = ? 
+2019-11-04 20:06:07,547 33     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 1(Integer)
+2019-11-04 20:06:07,568 54     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==      Total: 1
+2019-11-04 20:08:01,636 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:08:01,665 29     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: null, 123(String)
+2019-11-04 20:09:08,947 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:09:08,980 33     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: null, 123(String)
+2019-11-04 20:10:17,763 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:10:17,793 30     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: null, 123(String)
+2019-11-04 20:10:17,794 31     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:10:54,912 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:10:54,943 31     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: null, 123(String)
+2019-11-04 20:10:54,945 33     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:12:37,855 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:12:37,885 30     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: null, 123(String)
+2019-11-04 20:12:37,888 33     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:13:34,414 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values(?, ?) 
+2019-11-04 20:13:34,449 35     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 123(String), 111(String)
+2019-11-04 20:13:34,455 41     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:15:57,966 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values('t123', '123') 
+2019-11-04 20:15:57,996 30     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 
+2019-11-04 20:15:57,998 32     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:16:30,913 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values('t123', '123') 
+2019-11-04 20:16:30,945 32     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 
+2019-11-04 20:16:30,947 34     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:18:32,227 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values('t123', '123') 
+2019-11-04 20:18:32,259 32     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 
+2019-11-04 20:18:32,261 34     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-04 20:19:46,555 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values('t123', '123') 
+2019-11-04 20:19:46,589 34     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 
+2019-11-04 20:19:46,590 35     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1

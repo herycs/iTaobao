@@ -24,5 +24,6 @@
         <input type="reset" value="重置">
         <input type="submit" name="submit" value="login"><br>
     </form>
+    <a href="./register.jsp">注册</a>
 </body>
 </html>

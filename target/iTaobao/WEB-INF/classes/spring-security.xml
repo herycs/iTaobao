@@ -14,7 +14,7 @@
 
     <security:http auto-config="true" use-expressions="false">
         <!-- 配置拦截路径及通行权限 -->
-<!--        <security:intercept-url pattern="/**" access="ROLE_USER" />-->
+        <security:intercept-url pattern="/**" access="ROLE_USER" />
         <!--
             login-page 自定义登陆页面
             authentication-failure-url 用户名密码错误
@@ -38,7 +38,7 @@
     <security:authentication-manager>
         <!--下面的userService中就实现了对应的方法，-->
         <security:authentication-provider user-service-ref="userService">
-<!--            <security:password-encoder ref="passwordEncoder"/>-->
+            <security:password-encoder ref="passwordEncoder"/>
         </security:authentication-provider>
     </security:authentication-manager>
 

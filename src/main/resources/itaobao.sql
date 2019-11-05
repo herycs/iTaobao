@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/10/27 16:48:56                          */
+/* Created on:     2019/11/4 19:24:39                           */
 /*==============================================================*/
 
 
@@ -49,7 +49,7 @@ drop table if exists user_role;
 /*==============================================================*/
 create table announcement
 (
-   annu_ID              int not null,
+   annu_ID              int not null auto_increment,
    annu_data            varchar(100),
    primary key (annu_ID)
 );
@@ -59,7 +59,7 @@ create table announcement
 /*==============================================================*/
 create table bus_detail
 (
-   bus_detail_ID        int not null,
+   bus_detail_ID        int not null auto_increment,
    identfify_face       varchar(50),
    identfify_back       varchar(50),
    primary key (bus_detail_ID)
@@ -70,7 +70,7 @@ create table bus_detail
 /*==============================================================*/
 create table business
 (
-   bus_ID               int not null,
+   bus_ID               int not null auto_increment,
    bus_detail_ID        int,
    bus_Name             varchar(20),
    bus_address          varchar(50),
@@ -85,7 +85,7 @@ create table business
 /*==============================================================*/
 create table category
 (
-   cate_ID              int not null,
+   cate_ID              int not null auto_increment,
    pro_ID               int,
    cate_name            varchar(20),
    primary key (cate_ID)
@@ -96,7 +96,7 @@ create table category
 /*==============================================================*/
 create table collect
 (
-   collectID            int not null,
+   collectID            int not null auto_increment,
    userID               int,
    favourite_status     char(1) comment '1表示收藏
             0表示未收藏',
@@ -108,7 +108,7 @@ create table collect
 /*==============================================================*/
 create table credits
 (
-   creditsID            int not null,
+   creditsID            int not null auto_increment,
    userID               int,
    credits              int,
    primary key (creditsID)
@@ -119,7 +119,7 @@ create table credits
 /*==============================================================*/
 create table favourable
 (
-   fav_ID               int not null,
+   fav_ID               int not null auto_increment,
    pro_ID               int,
    fav_name             varchar(10),
    fav_price            float(2) comment '百分比：原价的多少
@@ -136,7 +136,7 @@ create table favourable
 /*==============================================================*/
 create table history
 (
-   historyID            int not null,
+   historyID            int not null auto_increment,
    userID               int,
    historyData          varchar(200),
    primary key (historyID)
@@ -147,7 +147,7 @@ create table history
 /*==============================================================*/
 create table manager
 (
-   man_ID               int not null,
+   man_ID               int not null auto_increment,
    man_username         varchar(25),
    man_name             varchar(200),
    man_password         varchar(30),
@@ -159,7 +159,7 @@ create table manager
 /*==============================================================*/
 create table orderDetail
 (
-   order_detail_ID      int not null,
+   order_detail_ID      int not null auto_increment,
    userID               int,
    pro_ID               int,
    bus_ID               int,
@@ -172,7 +172,7 @@ create table orderDetail
 /*==============================================================*/
 create table orderForm
 (
-   orderID              int not null,
+   orderID              int not null auto_increment,
    order_detail_ID      int,
    money                float(2),
    createTime           datetime,
@@ -192,7 +192,7 @@ create table orderForm
 /*==============================================================*/
 create table permission
 (
-   permissionID         int not null,
+   permissionID         int not null auto_increment,
    permissionName       varchar(50),
    permissionUrl        varchar(200),
    primary key (permissionID)
@@ -203,7 +203,7 @@ create table permission
 /*==============================================================*/
 create table pro_detail
 (
-   detail_ID            int not null comment '折扣详情，针对什么商品，达到什么要求，折扣多少',
+   detail_ID            int not null auto_increment comment '折扣详情，针对什么商品，达到什么要求，折扣多少',
    pro_ID               int,
    detail_data          varchar(100),
    detail_class         char(1),
@@ -215,7 +215,7 @@ create table pro_detail
 /*==============================================================*/
 create table product
 (
-   pro_ID               int not null,
+   pro_ID               int not null auto_increment,
    pro_name             varchar(50),
    pro_img              varchar(100),
    pro_price            float(2),
@@ -234,7 +234,7 @@ create table product
 /*==============================================================*/
 create table repertory
 (
-   repe_ID              int not null,
+   repe_ID              int not null auto_increment,
    pro_ID               int,
    repe_num             int,
    primary key (repe_ID)
@@ -245,7 +245,7 @@ create table repertory
 /*==============================================================*/
 create table role
 (
-   roleID               varchar(50) not null,
+   roleID               int not null auto_increment,
    roleName             varchar(20),
    roleDescribe         varchar(50),
    primary key (roleID)
@@ -256,7 +256,7 @@ create table role
 /*==============================================================*/
 create table role_premission
 (
-   role_preID           int not null,
+   role_preID           int not null auto_increment,
    roleID               varchar(50),
    permissionID         int,
    primary key (role_preID)
@@ -267,7 +267,7 @@ create table role_premission
 /*==============================================================*/
 create table syslog
 (
-   logID                int not null,
+   logID                int not null auto_increment,
    username             varchar(30),
    visitTime            datetime,
    ip                   varchar(50),
@@ -282,7 +282,7 @@ create table syslog
 /*==============================================================*/
 create table user
 (
-   userID               int not null,
+   userID               int not null auto_increment,
    username             varchar(30),
    password             varchar(30),
    sex                  char(1),
@@ -299,7 +299,7 @@ create table user
 /*==============================================================*/
 create table user_role
 (
-   user_roleID          int not null,
+   user_roleID          int not null auto_increment,
    userID               int,
    roleID               varchar(50),
    primary key (user_roleID)

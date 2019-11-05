@@ -41,7 +41,7 @@
 
         url=jdbc:mysql:///itaobao?serverTimezone=PRC
 
-        userInfo=root
+        IUser=root
 
         password=123456
     ```

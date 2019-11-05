@@ -1,6 +1,6 @@
 package com.w.service;
 
-import com.w.domain.UserInfo;
+import com.w.domain.IUser;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -14,15 +14,15 @@ import java.util.List;
  **/
 public interface UserService extends UserDetailsService {
 //    注册
-    int register(UserInfo userInfo) throws Exception;
+    int register(IUser IUser) throws Exception;
 //    激活
     int active(String active);
 //    查找所有
-    List<UserInfo> findAll();
+    List<IUser> findAll();
 //    查找指定用户
-    List<UserInfo> findUserBySomething();
+    List<IUser> findUserBySomething();
 //    修改用户信息
-    int updateUser(UserInfo userInfo);
+    int updateUser(IUser IUser);
 //    删除用户
-    int deleteUser(UserInfo userInfo);
+    int deleteUser(IUser IUser);
 }
