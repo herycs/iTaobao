@@ -1,5 +1,13 @@
 package com.w.dao;
 
+import com.w.domain.RolePremission;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 /**
  * @ClassNameRolePremissionDao
  * @Description
@@ -7,5 +15,18 @@ package com.w.dao;
  * @Date2019/10/31 8:31
  * @Version V1.0
  **/
-public class RolePremissionDao {
+public interface RolePremissionDao {
+
+    //增加用户权限绑定
+    @Insert("insert into role_premission(roleID, permissionID) values(#{rolePremission.roleID}, #{rolePremission.permissionID})")
+    int addPremissionForUser(@Param("rolePremission") RolePremission rolePremission);
+
+    //删除用户权限绑定
+    @Delete("delete from role_premission where roleID = #{rolePremission.roleID}")
+    int removePremissionFromUser(@Param("rolePremission") RolePremission rolePremission);
+
+    //查找用户权限
+    @Select("select * from role_premission")
+    List<RolePremission> findAllPremission();
+
 }

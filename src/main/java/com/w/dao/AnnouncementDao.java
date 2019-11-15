@@ -1,10 +1,8 @@
 package com.w.dao;
 
 import com.w.domain.Announcement;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,17 +19,17 @@ public interface AnnouncementDao {
 
 //    添加
     @Insert("insert into announcement(annu_data) values(#{announcement.annu_data})")
-    int addAnnouncement(Announcement announcement);
+    int addAnnouncement(@Param("announcement") Announcement announcement);
 
 //    删除
     @Delete("delete from announcement where annu_ID = #{announcementID}")
-    int deleteAnnouncement(String announcementID);
+    int deleteAnnouncement(int announcementID);
 
 //    更新
     @Update("update announcement set "+
-                "annu_data = #{announcement.annu_ID} "+
+                "annu_data = #{announcement.annu_data} "+
                 "where annu_ID = #{announcement.annu_ID}")
-    int updateAnnouncement(Announcement announcement);
+    int updateAnnouncement(@Param("announcement") Announcement announcement);
 
 //    查询
 

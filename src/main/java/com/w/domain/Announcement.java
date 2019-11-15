@@ -35,4 +35,12 @@ public class Announcement {
     public void setAnnu_data(String annu_data) {
         this.annu_data = annu_data;
     }
+
+    @Override
+    public String toString() {
+        return "Announcement{" +
+                "annu_ID=" + annu_ID +
+                ", annu_data='" + annu_data + '\'' +
+                '}';
+    }
 }

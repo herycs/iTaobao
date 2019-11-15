@@ -8,39 +8,50 @@
        http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!-- 配置不过滤的资源（静态资源及登录相关） -->
-    <security:http security="none" pattern="/login.jsp" />
+    <security:http security="none" pattern="/reg1.jsp" />
+    <security:http security="none" pattern="/login1.jsp" />
+
+    <security:http security="none" pattern="/reg3.jsp" />
+    <security:http security="none" pattern="/login3.jsp" />
+
     <security:http security="none" pattern="/error.jsp" />
     <security:http security="none" pattern="/index.jsp" />
+    <security:http security="none" pattern="/login.jsp" />
 
-    <security:http auto-config="true" use-expressions="false">
-        <!-- 配置拦截路径及通行权限 -->
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
-        <!--
-            login-page 自定义登陆页面
-            authentication-failure-url 用户名密码错误
-            default-target-url 登陆成功跳转页面
-            注：登陆页面用户名固定 username，密码 password，action:login -->
-        <security:form-login login-page="/login.jsp" login-processing-url="/login"
-                             username-parameter="username"
-                             password-parameter="password"
-                             authentication-failure-url="/error.jsp"
-                             default-target-url="/index.jsp"
-                             authentication-success-forward-url="/index.jsp"/>
-        <!-- 登出，
-            invalidate-session 是否删除session
-            logout-url：登出处理链接
-            logout-success- url：登出成功页面 -->
-        <security:logout invalidate-session="true" logout-url="/logout" logout-success-url="/login.jsp" />
-        <!-- 关闭 C S R F,跨服务器请求，默认是开启的,关闭 -->
-        <security:csrf disabled="true" />
-    </security:http>
+    <security:http security="none" pattern="/layui/*" />
+    <security:http security="none" pattern="/js/*" />
+    <security:http security="none" pattern="/css/*" />
+    <security:http security="none" pattern="/themes/*" />
 
-    <security:authentication-manager>
-        <!--下面的userService中就实现了对应的方法，-->
-        <security:authentication-provider user-service-ref="userService">
-            <security:password-encoder ref="passwordEncoder"/>
-        </security:authentication-provider>
-    </security:authentication-manager>
+<!--    <security:http auto-config="true" use-expressions="false">-->
+<!--        &lt;!&ndash; 配置拦截路径及通行权限 &ndash;&gt;-->
+<!--        <security:intercept-url pattern="/**" access="ROLE_USER" />-->
+<!--        &lt;!&ndash;-->
+<!--            login-page 自定义登陆页面-->
+<!--            authentication-failure-url 用户名密码错误-->
+<!--            default-target-url 登陆成功跳转页面-->
+<!--            注：登陆页面用户名固定 username，密码 password，action:login &ndash;&gt;-->
+<!--        <security:form-login login-page="/login.jsp" login-processing-url="/login"-->
+<!--                             username-parameter="username"-->
+<!--                             password-parameter="password"-->
+<!--                             authentication-failure-url="/error.jsp"-->
+<!--                             default-target-url="/index.jsp"-->
+<!--                             authentication-success-forward-url="/index.jsp"/>-->
+<!--        &lt;!&ndash; 登出，-->
+<!--            invalidate-session 是否删除session-->
+<!--            logout-url：登出处理链接-->
+<!--            logout-success- url：登出成功页面 &ndash;&gt;-->
+<!--        <security:logout invalidate-session="true" logout-url="/logout" logout-success-url="/login.jsp" />-->
+<!--        &lt;!&ndash; 关闭 C S R F,跨服务器请求，默认是开启的,关闭 &ndash;&gt;-->
+<!--        <security:csrf disabled="true" />-->
+<!--    </security:http>-->
+
+<!--    <security:authentication-manager>-->
+<!--        &lt;!&ndash;下面的userService中就实现了对应的方法，&ndash;&gt;-->
+<!--        <security:authentication-provider user-service-ref="userService">-->
+<!--            <security:password-encoder ref="passwordEncoder"/>-->
+<!--        </security:authentication-provider>-->
+<!--    </security:authentication-manager>-->
 
 <!--    配置加密类-->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>

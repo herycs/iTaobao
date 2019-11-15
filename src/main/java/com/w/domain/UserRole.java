@@ -18,7 +18,7 @@ public class UserRole {
 
     Integer user_roleID;
     Integer userID;
-    String roleID;
+    Integer roleID;
 
     public Integer getUser_roleID() {
         return user_roleID;
@@ -36,11 +36,11 @@ public class UserRole {
         this.userID = userID;
     }
 
-    public String getRoleID() {
+    public Integer getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(String roleID) {
+    public void setRoleID(Integer roleID) {
         this.roleID = roleID;
     }
 }

@@ -6,5 +6,6 @@
 </head>
 <body>
     error.jsp 登录失败
+    ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }
 </body>
 </html>

@@ -11,14 +11,14 @@ package com.w.domain;
 //create table role_premission
 //        (
 //        role_preID           int not null,
-//        roleID               varchar(50),
+//        roleID               int,
 //        permissionID         int,
 //        primary key (role_preID)
 //);
 public class RolePremission {
 
     Integer role_preID;
-    String roleID;
+    Integer roleID;
     Integer permissionID;
 
     public Integer getRole_preID() {
@@ -29,11 +29,11 @@ public class RolePremission {
         this.role_preID = role_preID;
     }
 
-    public String getRoleID() {
+    public Integer getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(String roleID) {
+    public void setRoleID(Integer roleID) {
         this.roleID = roleID;
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.w</groupId>
@@ -23,7 +23,7 @@
     <mysql.version>8.0.15</mysql.version>
     <mybatis.version>3.4.5</mybatis.version>
     <druid.version>1.1.11</druid.version>
-    <jackson.version>2.4.5</jackson.version>
+    <jackson.version>2.9.5</jackson.version>
     <spring.security.version>5.0.6.RELEASE</spring.security.version>
     <validation.version>1.1.0.Final</validation.version>
     <hibernate.version>4.3.0.Final</hibernate.version>
@@ -144,17 +144,27 @@
       <version>${slf4j.version}</version>
     </dependency>
 
-    <!--json    -->
-    <!--    <dependency>-->
-    <!--      <groupId>com.fasterxml.jackson.core</groupId>-->
-    <!--      <artifactId>jackson-core</artifactId>-->
-    <!--      <version>${jackson.version}</version>-->
-    <!--    </dependency>-->
-    <!--    <dependency>-->
-    <!--      <groupId>com.fasterxml.jackson.core</groupId>-->
-    <!--      <artifactId>jackson-databind</artifactId>-->
-    <!--      <version>${jackson.version}</version>-->
-    <!--    </dependency>-->
+    <!--    json-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-jaxb-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
 
     <!--    validateCode-->
     <dependency>
@@ -196,18 +206,18 @@
       <artifactId>spring-security-config</artifactId>
       <version>${spring.security.version}</version>
     </dependency>
-<!--    验证器-->
-<!--    <dependency>-->
-<!--      <groupId>org.hibernate</groupId>-->
-<!--      <artifactId>hibernate-validator</artifactId>-->
-<!--      <version>${hibernate.version}</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>javax.validation</groupId>-->
-<!--      <artifactId>validation-api</artifactId>-->
-<!--      <version>${validation.version}</version>-->
-<!--    </dependency>-->
-<!--    文件上传下载-->
+    <!--    验证器-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.hibernate</groupId>-->
+    <!--      <artifactId>hibernate-validator</artifactId>-->
+    <!--      <version>${hibernate.version}</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>javax.validation</groupId>-->
+    <!--      <artifactId>validation-api</artifactId>-->
+    <!--      <version>${validation.version}</version>-->
+    <!--    </dependency>-->
+    <!--    文件上传下载-->
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>

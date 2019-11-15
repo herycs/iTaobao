@@ -1,5 +1,7 @@
 package com.w.domain;
 
+import org.apache.ibatis.annotations.Insert;
+
 import java.util.List;
 
 /**
@@ -20,27 +22,17 @@ import java.util.List;
 
 public class Role{
 
-    private String roleID;
+    private Integer roleID;
     private String roleName;
     private String roleDescribe;
     private List<Permission> permissionList;
     private List<IUser> IUserList;
 
-    public List<IUser> getIUserInfoList() {
-        return IUserInfoList;
-    }
-
-    public void setIUserInfoList(List<IUser> IUserInfoList) {
-        this.IUserInfoList = IUserInfoList;
-    }
-
-    private List<IUser> IUserInfoList;
-
-    public String getRoleID() {
+    public Integer getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(String roleID) {
+    public void setRoleID(Integer roleID) {
         this.roleID = roleID;
     }
 
@@ -74,16 +66,5 @@ public class Role{
 
     public void setIUserList(List<IUser> IUserList) {
         this.IUserList = IUserList;
-    }
-    @Override
-    public String toString() {
-        return "Role{" +
-                "roleID='" + roleID + '\'' +
-                ", roleName='" + roleName + '\'' +
-                ", roleDescribe='" + roleDescribe + '\'' +
-                ", permissionList=" + permissionList +
-                ", userInfoList=" + IUserList +
-                ", userInfoInfoList=" + IUserInfoList +
-                '}';
     }
 }

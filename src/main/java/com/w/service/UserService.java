@@ -20,7 +20,7 @@ public interface UserService extends UserDetailsService {
 //    查找所有
     List<IUser> findAll();
 //    查找指定用户
-    List<IUser> findUserBySomething();
+    IUser findUserByName(String username);
 //    修改用户信息
     int updateUser(IUser IUser);
 //    删除用户

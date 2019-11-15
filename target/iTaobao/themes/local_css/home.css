@@ -1,0 +1,25 @@
+body{
+  margin-left: 5%;
+  width: 90%;
+  padding-top: 50px;
+}
+
+/*导航栏*/
+#top_nav{
+  margin-right: 5%;
+}
+
+/*轮播图*/
+#row_img img{
+  width: 80%;
+  height: 380px;
+  padding-left: 5%;
+  margin-left: 5%;
+}
+
+/*影片信息展示*/
+.filmImg{
+  width: 200px;
+  height: 250px;
+  border: 1px solid;
+}

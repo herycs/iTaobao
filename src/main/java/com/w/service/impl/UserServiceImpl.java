@@ -59,7 +59,6 @@ public class UserServiceImpl implements UserService {
             System.out.println("注册失败");
             return -1;
         }else{
-            String IP = "192.168.1.244";
             String mailText = "<h1>这是来自iTaobao商城的一封注册邮件，<a href='localhost:8080/active.do?activeCode="+IUser.getCode()+"'>点击激活</a>您的账号,若非本人操作请忽略</h1>";
             MailUtils.sendMail(IUser.getEmail(), mailText, "激活邮件");
             System.out.println("注册成功");
@@ -87,9 +86,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<IUser> findUserBySomething() {
-        return null;
+    public IUser findUserByName(String username) {
+        IUser iUser = IUserDao.findUserByName(username);
+        if(iUser == null){
+            return null;
+        }
+        return iUser;
     }
+
 
     @Override
     public int updateUser(IUser IUser) {

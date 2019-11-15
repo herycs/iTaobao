@@ -4,6 +4,7 @@ import com.w.domain.IUser;
 import com.w.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping("checkUserName.do")
+    public String checkUsername(String username, Model model){
+        IUser iUser = userService.findUserByName(username);
+        if(iUser != null){
+            model.addAttribute("user", 1);
+        }else{
+            model.addAttribute("user", 0);
+        }
+        return null;
+    }
 
     @RequestMapping(value = "/register.do", method = RequestMethod.POST)
     public String register(@ModelAttribute IUser IUser) throws Exception {
@@ -61,5 +73,16 @@ public class UserController {
         modelAndView.addObject("users", IUsers);
         modelAndView.setViewName("userList");
         return modelAndView;
+    }
+
+    @RequestMapping("/login.do")
+    public String login(IUser user, Model model){
+
+        IUser userFromDB = userService.findUserByName(user.getUsername());
+        if (userFromDB!=null && userFromDB.getPassword().equals(user.getPassword())) {
+            model.addAttribute("user", userFromDB);
+            return "ok";
+        }
+        return "error";
     }
 }
