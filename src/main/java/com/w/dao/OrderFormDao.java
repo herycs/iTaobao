@@ -1,16 +1,13 @@
 package com.w.dao;
 
 import com.w.domain.OrderForm;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * @ClassNameOrderFormDao
+ * @ClassNameorderForm
  * @Description
  * @Author ANGLE0
  * @Date2019/10/31 8:27
@@ -20,30 +17,35 @@ import java.util.List;
 public interface OrderFormDao {
 
     //add
-    @Insert("insert into orderForm(order_detail_ID, money, createTime, payTime, orderStatus) values(" +
-            "order_detail_ID = #{orderFormDao}.order_detail_ID," +
-            "money = #{orderFormDao}.money," +
-            "createTime = #{orderFormDao}.createTime," +
-            "payTime = #{orderFormDao}.payTime," +
-            "orderStatus = #{orderFormDao}.orderStatus")
-    int addOrderForm(OrderForm orderForm);
+    @Insert("insert into orderform(order_detail_ID, money, createTime, payTime, orderStatus) " +
+            "values(" +
+                "#{orderForm.order_detail_ID}," +
+                "#{orderForm.money}," +
+                "#{orderForm.createTime}," +
+                "#{orderForm.payTime}," +
+                "#{orderForm.orderStatus}" +
+            ")")
+    int addOrderForm(@Param("orderForm")OrderForm orderForm);
 
     //delete
-    @Delete("delete from orderForm where orderID = #{orderID}")
-    int deleteOrderForm(String orderID);
+    @Delete("delete from orderform where orderID = #{orderID}")
+    int deleteOrderForm(int orderID);
 
     //update
-    @Update("update orderForm set " +
-            "order_detail_ID = #{orderFormDao}.order_detail_ID," +
-            "money = #{orderFormDao}.money," +
-            "createTime = #{orderFormDao}.createTime," +
-            "payTime = #{orderFormDao}.payTime," +
-            "orderStatus = #{orderFormDao}.orderStatus")
-    int updateOrderForm(OrderForm orderForm);
+    @Update("update orderform set " +
+                "order_detail_ID = #{orderForm.order_detail_ID}," +
+                "money = #{orderForm.money}," +
+                "createTime = #{orderForm.createTime}," +
+                "payTime = #{orderForm.payTime}," +
+                "orderStatus = #{orderForm.orderStatus}" +
+                " where orderID = #{orderForm.orderID}" +
+            ")")
+    int updateOrderForm(@Param("orderForm") OrderForm orderForm);
 
     //select
-    @Select("select * from orderForm")
+    @Select("select * from orderform")
     List<OrderForm> findAll();
-    @Select("select from orderForm = where orderID = #{orderID}")
-    List<OrderForm> findOrderFormByID(String orderID);
+
+    @Select("select from orderform = where orderID = #{orderID}")
+    List<OrderForm> findOrderFormByID(int orderID);
 }

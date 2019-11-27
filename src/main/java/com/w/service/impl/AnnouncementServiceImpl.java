@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ClassNameAnnouncementServiceImpl
+ * @ClassName AnnouncementServiceImpl
  * @Description
  * @Author ANGLE0
  * @Date2019/11/14 8:13

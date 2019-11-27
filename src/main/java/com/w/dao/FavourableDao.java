@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.Favourable;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,30 +17,35 @@ import java.util.List;
 public interface FavourableDao {
 
 //    添加商品
-    @Insert("insert into favourable(pro_ID,fav_name,fav_price,fav_method) "+
-            " values(#{favourable.pro_ID},#{favourable.fav_name},#{favourable.fav_price},"+
-                      "#{favourable.fav_method})")
-    int addFavourable(Favourable favourable);
+    @Insert("insert into " +
+                "favourable(pro_ID,fav_name,fav_price,fav_method) "+
+                    " values(" +
+                    "#{favourable.pro_ID}," +
+                    "#{favourable.fav_name}," +
+                    "#{favourable.fav_price},"+
+                    "#{favourable.fav_method}" +
+                    ")")
+    int addFavourable(@Param("favourable") Favourable favourable);
 
 //    删除商品
     @Delete("delete from favourable where fav_ID = #{fav_ID}")
-    int deleteFavourable(String fav_ID);
+    int deleteFavourable(int fav_ID);
 
 //    更新商品信息
     @Update("update favourable set "+
                 "pro_ID = #{favourable.pro_ID}, "+
                 "fav_name = #{favourable.fav_name}, "+
                 "fav_price = #{favourable.fav_price}, "+
-                "fav_method = #{favourable.fav_method}, "+
+                "fav_method = #{favourable.fav_method} "+
                 "where fav_ID = #{favourable.fav_ID}")
-    int updateFavourable(Favourable favourable);
+    int updateFavourable(@Param("favourable") Favourable favourable);
 
 //    查询产品
     @Select("select * from favourable where fav_name = #{fav_name}")
     List<Favourable> findFavourableByName(String fav_name);
 
     @Select("select * from favourable where fav_ID = #{favourableID}")
-    List<Favourable> findFavourableByID(String favourableID);
+    List<Favourable> findFavourableByID(int favourableID);
 
     @Select("select * from favourable")
     List<Favourable> findAllFavourable();

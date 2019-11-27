@@ -55,3 +55,5 @@
 - 已配置spring security框架
 
 - 编写完Service和ServiceImpl
+
+- Controller层编写测试完毕（order的update初始值需要多加考虑）

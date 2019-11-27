@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.OrderDetail;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,7 +27,7 @@ public interface OrderDetailDao {
 
     //delete
     @Delete("delete from where order_detail_ID = #{orderDetail}.order_detail_ID")
-    int deleteOrderDatail(OrderDetail orderDetail);
+    int deleteOrderDatail(@Param("orderDetail")OrderDetail orderDetail);
 
     //update
     @Update("update orderDetail set " +
@@ -39,7 +36,7 @@ public interface OrderDetailDao {
             "bus_ID = #{orderDetail}.bus_ID," +
             "buy_num = #{orderDetail}.buy_num where" +
             "order_detail_ID = #{orderDetail}.order_detail_ID")
-    int updateOrderDetail(OrderDetail orderDetail);
+    int updateOrderDetail(@Param("orderDetail")OrderDetail orderDetail);
 
     //find
     @Select("select * from orderDetail")

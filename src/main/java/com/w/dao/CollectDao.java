@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.Collect;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,23 +17,23 @@ import java.util.List;
 public interface CollectDao {
 
 //    添加
-    @Insert("insert into collect(userID,favourite_status) values(#{Collect.userID},#{Collect.favourite_status})")
-    int addCollect(Collect collect);
+    @Insert("insert into collect(userID,favourite_status) values(#{collect.userID},#{collect.favourite_status})")
+    int addCollect(@Param("collect") Collect collect);
 
 //    删除
     @Delete("delete from collect where collectID = #{collectID}")
-    int deleteCollect(String collectID);
+    int deleteCollect(int collectID);
 
 //    更新信息
     @Update("update collect set "+
                 "userID = #{collect.userID}, "+
-                "cate_name = #{collect.favourite_status} "+
+                "favourite_status = #{collect.favourite_status} "+
                 "where collectID = #{collect.collectID}")
-    int updateCollect(Collect collect);
+    int updateCollect(@Param("collect") Collect collect);
 
 //    查询
     @Select("select * from Collect where collectID = #{collectID}")
-    List<Collect> findCollectByID(String collectID);
+    List<Collect> findCollectByID(int collectID);
 
     @Select("select * from collect")
     List<Collect> findAllCollect();

@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.History;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,7 +19,7 @@ public interface HistoryDao {
 //    添加历史记录
     @Insert("insert into history(userID,historyData) "+
             " values(#{history.userID},#{history.historyData}) ")
-    int addHistory(History history);
+    int addHistory(@Param("history") History history);
 
 //    删除历史记录
     @Delete("delete from history where historyID = #{historyID}")
@@ -31,10 +28,9 @@ public interface HistoryDao {
 //    更新历史记录
     @Update("update history set "+
                 "userID = #{history.userID}, "+
-                "fav_name = #{history.fav_name}, "+
                 "historyData = #{history.historyData} "+
                 "where historyID = #{history.historyID}")
-    int updateHistory(History history);
+    int updateHistory(@Param("history") History history);
 
 //    查询历史记录
     @Select("select * from history where historyID = #{historyID}")

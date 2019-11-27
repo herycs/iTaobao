@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.Manager;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,8 +18,12 @@ public interface ManagerDao {
 
 //    添加管理员
     @Insert("insert into manager(man_username,man_name,man_password) "+
-            " values(#{manager.man_username},#{manager.man_name},#{manager.man_password}")
-    int addManager(Manager manager);
+            " values(" +
+                "#{manager.man_username}" +
+                ",#{manager.man_name}" +
+                ",#{manager.man_password}" +
+            ")")
+    int addManager(@Param("manager") Manager manager);
 
 //    删除管理员
     @Delete("delete from manager where man_ID = #{man_ID}")
@@ -30,11 +31,11 @@ public interface ManagerDao {
 
 //    更新管理员信息
     @Update("update manager set "+
-                "man_username = #{manager.pro_ID}, "+
+                "man_username = #{manager.man_username}, "+
                 "man_name = #{manager.man_name}, "+
-                "man_password = #{manager.man_password}, "+
+                "man_password = #{manager.man_password} "+
                 "where man_ID = #{manager.man_ID}")
-    int updateManager(Manager manager);
+    int updateManager(@Param("manager")Manager manager);
 
 //    查询管理员
 

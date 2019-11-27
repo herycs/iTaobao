@@ -12,5 +12,10 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface RoleService {
-    List<Role> findRoleByUserID(String userID);
+    int addRole(Role role);
+    int deleRole(int roleID);
+    List<Role> findAll();
+    List<Role> findfindRoleByUserID(int userID);
+
+    int updateRole(Role role);
 }

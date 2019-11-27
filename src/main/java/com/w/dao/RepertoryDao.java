@@ -20,8 +20,8 @@ public interface RepertoryDao {
     int addRepertory(@Param("repertory") Repertory repertory);
 
     //修改库存
-    @Update("update repertory set repe_num = #{repeNum} where pro_ID = #{proID}")
-    int updateRepertory(int repeNum,int proID);
+    @Update("update repertory set pro_ID = #{repertory.pro_ID}, repe_num = #{repertory.repe_num} where repe_ID = #{repertory.repe_ID}")
+    int updateRepertory(@Param("repertory")Repertory repertory);
 
     //删除库存记录
     @Delete("delete from repertory where repe_ID = #{repeID}")

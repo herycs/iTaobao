@@ -4,7 +4,6 @@ import com.w.domain.Announcement;
 import com.w.service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,7 +27,7 @@ public class AnnocementController {
     public String updateAnno(Announcement announcement){
         int result = announcementService.updateAnno(announcement);
         if (result == 1) {
-            return "sucess";
+            return "success";
         }
         return "filed";
     }
@@ -37,7 +36,7 @@ public class AnnocementController {
     public String addAnno(Announcement announcement){
         int result = announcementService.addAnno(announcement);
         if (result == 1) {
-            return "sucess";
+            return "success";
         }
         return "filed";
     }

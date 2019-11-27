@@ -1,10 +1,7 @@
 package com.w.dao;
 
 import com.w.domain.Credits;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +18,7 @@ public interface CreditsDao {
 
 //    添加
     @Insert("insert into credits(userID,credits) values(#{credits.userID},#{credits.credits})")
-    int addCredits(Credits credits);
+    int addCredits(@Param("credits") Credits credits);
 
 //    删除
     @Delete("delete from credits where creditsID = #{creditsID}")
@@ -32,7 +29,7 @@ public interface CreditsDao {
                 "userID = #{credits.userID}, "+
                 "credits = #{credits.credits} "+
                 "where creditsID = #{credits.creditsID}")
-    int updateCredits(Credits credits);
+    int updateCredits(@Param("credits") Credits credits);
 
 //    查询
     @Select("select * from credits where creditsID = #{creditsID}")

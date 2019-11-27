@@ -76,3 +76,6 @@
 2019-11-04 20:19:46,555 0      [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==>  Preparing: insert into user(username, password) values('t123', '123') 
 2019-11-04 20:19:46,589 34     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - ==> Parameters: 
 2019-11-04 20:19:46,590 35     [           main] DEBUG om.w.dao.IUserDao.findUserByID  - <==    Updates: 1
+2019-11-25 20:26:16,898 0      [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==>  Preparing: select * from user 
+2019-11-25 20:26:16,940 42     [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==> Parameters: 
+2019-11-25 20:26:17,012 114    [           main] DEBUG     com.w.dao.IUserDao.findAll  - <==      Total: 19
