@@ -1,0 +1,1448 @@
+
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: ITAOBAO
+
+basePath: /iTaobao
+
+host: www.ym999.wang:8080
+
+schemes:
+  - http
+  - https
+  
+paths:
+
+  /user:
+    #find all
+    get:
+      tags: 
+        - user
+      # Describe this verb here. Note: you can use markdown
+      description: |
+       查询所有用户
+       
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    #add user
+    post:
+      tags:
+        - user
+      
+      description: |
+        增加用户
+      
+      parameters:
+        - 
+          name: body
+          in: body
+          description: add user
+          required: true
+          schema:
+            $ref: '#/definitions/user'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    #update user
+    put:
+      tags:
+        - user
+      description: |
+        修改用户信息
+        
+      parameters:
+        - 
+          name: body
+          in: body
+          description: update user
+          required: true
+          schema:
+            $ref: '#/definitions/user'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    #delete user
+    delete:
+      tags:
+        - user
+      description: | 
+        删除用户
+      
+      parameters:
+        - 
+          name: userID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+            
+  /role:
+    #find all roles
+    get:
+      tags:
+        - role
+      summary: find all
+      description: 查询所有角色
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    #add role
+    put:
+      tags:
+        - role
+      summary: update role
+      description: update role
+      parameters:
+        - 
+          name: body
+          in: body
+          description: 增加角色
+          required: true
+          schema:
+            $ref: '#/definitions/role'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    #update role
+    post:
+      tags:
+        - role
+      summary: add role
+      description:  修改角色信息
+      parameters:
+        # An example parameter that is in query and is required
+        -
+          name: body
+          in: body
+          description: update role
+          required: true
+          schema:
+            $ref: '#/definitions/role'
+      # Expected responses for this operation:
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - role
+      summary: delete role
+      description: |
+        删除角色
+      parameters:
+        - 
+          name: roleID
+          in: query
+          description: delete role
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+  
+  /anno:
+    get:
+      tags: 
+        - anno
+      description: |
+        查询所有公告
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+
+    post:
+      tags:
+        - anno
+      description: |
+        增加公告
+      parameters:
+        -
+          name: body
+          in: body
+          description: add anno
+          required: true
+          schema:
+            $ref: '#/definitions/announcement'
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - anno
+      description: |
+        修改公告信息
+      parameters:
+        -
+          name: body
+          in: body
+          description: add anno
+          required: true
+          schema:
+            $ref: '#/definitions/announcement'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - anno
+      description: | 
+        删除公告
+      parameters:
+        - 
+          name: annoID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+  
+  /business:
+    get:
+      tags: 
+        - bussiness
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有商户
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - bussiness
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        增加商户
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/bussiness'
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - bussiness
+      description: |
+      parameters:
+        -
+          name: body
+          in: body
+          description: |
+            修改商户信息
+          required: true
+          schema:
+            $ref: '#/definitions/bussiness'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - bussiness
+      description: |
+        删除商户
+      parameters:
+        -
+          name: busID
+          in: query
+          description: bus
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'  
+            
+  /cate:
+    get:
+      tags: 
+        - cate
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有库存
+        
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - cate
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        增加库存数据
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/category'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - cate
+      description: |
+        修改库存信息，包括其对应的商品，库存数量
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/category'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - cate
+      description: |
+        删除库存数据，单条数据，由传入的ID决定
+        
+      parameters:
+        -
+          name: cateID
+          in: query
+          description: bus
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /coll:
+    get:
+      tags: 
+        - coll
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有收藏
+      # This is array of GET operation parameters:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - coll
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加收藏数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/collect'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - coll
+      description: |
+        修改收藏信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/collect'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - coll
+      description: |
+        删除收藏数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: collID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'      
+            
+  /credit:
+    get:
+      tags: 
+        - credit
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有用户积分信息
+      # This is array of GET operation parameters:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - credit
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加积分数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/credits'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - credit
+      description: |
+        修改积分信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/credits'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - credit
+      description: |
+        删除积分数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: reditsID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /fav:
+    get:
+      tags: 
+        - fav
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有优惠信息
+        
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - fav
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加优惠数据
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/favourable'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - fav
+      description: |
+        修改优惠信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/favourable'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - fav
+      description: |
+        删除优惠数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: userID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'     
+            
+  /history:
+    get:
+      tags: 
+        - history
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有用户浏览历史记录
+        
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - history
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加浏览历史记录数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/history'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - history
+      description: |
+        修改浏览历史记录信息
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/history'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - history
+      description: |
+        删除浏览历史记录数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: historyID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'    
+            
+  /man:
+    get:
+      tags: 
+        - manager
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有管理员
+        
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - manager
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加管理员数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/manager'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - manager
+      description: |
+        修改管理员信息
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/manager'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - manager
+      description: |
+        删除管理员数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: userID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'    
+            
+  /order:
+    get:
+      tags: 
+        - order
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有订单
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - order
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加订单数据
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/orderForm'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - order
+      description: |
+        修改订单信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/orderForm'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - order
+      description: |
+        删除订单数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: orderID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /permission:
+    get:
+      tags: 
+        - permission
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有权限
+        
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - permission
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加权限数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/permission'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - permission
+      description: |
+        修改权限信息
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/permission'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: ArrayOfPersons
+            type: array
+            items:
+              title: Person
+              type: object
+              properties:
+                name:
+                  type: string
+                single:
+                  type: boolean
+    delete:
+      tags:
+        - permission
+      description: |
+        删除权限数据，单条数据，由传入的ID决定
+      parameters:
+        - 
+          name: permissionID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /product:
+    get:
+      tags: 
+        - product
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        查询所有产品
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/product'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - product
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加产品数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/product'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - product
+      description: |
+        修改产品信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/product'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - product
+      description: |
+        删除产品数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: userID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /reper:
+    get:
+      tags: 
+        - reper
+      # Describe this verb here. Note: you can use markdown
+      description: |
+         查询所有用户库存信息
+         
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - reper
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加库存数据
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/repertory'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - reper
+      description: |
+        修改库存信息
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/repertory'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - reper
+      description: |
+        删除库存数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: repeID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'       
+            
+  /syslog:
+    get:
+      tags: 
+        - role
+      # Describe this verb here. Note: you can use markdown
+      description: |
+       查询所有访问日志信息
+      # This is array of GET operation parameters:
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/syslog'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    post:
+      tags:
+        - role
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        添加日志数据
+        
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    put:
+      tags:
+        - role
+      description: |
+        修改日志信息
+        
+      parameters:
+        -
+          name: body
+          in: body
+          description: bus
+          required: true
+          schema:
+            $ref: '#/definitions/syslog'
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'
+    delete:
+      tags:
+        - role
+      description: |
+        删除日志数据，单条数据，由传入的ID决定
+        
+      parameters:
+        - 
+          name: syslogID
+          in: query
+          description: name of user
+          required: true
+          type: integer
+          format: int32
+      responses:
+  
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ApiResponse'     
+
+
+definitions:
+
+  user:
+    type: object
+    properties:
+      userID:
+        type: integer
+        format: int32
+        description: the id of user
+      username:
+        type: string
+        description: name of user
+      password:
+        type: string 
+        description: password of user
+      sex:
+        type: string
+        description: sex
+      birthday:
+        type: string
+        format: date
+        description: birthday
+      teltphone:
+        type: string
+        description: phone number of user
+      email:
+        type: string
+        description: eamil of user
+  announcement:
+    type: object
+    properties:
+      annu_ID:
+        type: integer
+        format: int32
+        description: the ID of annucement
+      annu_data:
+        type: string
+        description: the data of this annucement
+  
+  bussiness:
+    type: object
+    properties:
+      bus_ID:
+        type: integer
+        format: int32
+        description: id
+      bus_detail_ID:
+        type: integer
+        format: int32
+        description: id of the business'detail
+      bus_Name:
+        type: string
+        description: name of bussiness
+      bus_address:
+        type: string
+        description: address of this bussiness
+      bus_phone: 
+        type: string
+        description: phone number
+      bus_email:
+        type: string
+        description: email of bussiness
+      bus_people:
+        type: string
+        description: l
+  category:
+    type: object
+    properties:
+      cate_ID:
+        type: integer
+        format: int32
+        description: d
+      pro_ID:
+        type: integer
+        format: int32
+        description: ss
+      cate_name:
+        type: string
+        description: sl
+  collect:
+    type: object
+    properties:
+      collectID:
+        type: integer
+        format: int32
+        description: ls 
+      userID:
+        type: integer
+        format: int32
+        description: ls
+      favourite_status:
+        type: integer
+        description: se
+  credits:
+    type: object
+    properties:
+      creditsID:
+        type: integer
+        format: int32
+        description: ls
+      userID:
+        type: string
+        description: ls
+      credits:
+        type: integer
+        format: int32
+        description: dl
+  favourable:
+    type: object
+    properties:
+      fav_ID:
+        type: integer
+        format: int32
+        description: ls
+      pro_ID:
+        type: integer
+        format: int32
+        description: ls
+      fav_name:
+        type: string
+        description: name of fav
+      fav_price:
+        type: number
+        format: float
+        description: l
+      fav_method:
+        type: integer
+        format: int32
+        description: l
+  history:
+    type: object
+    properties:
+      historyID:
+        type: integer
+        format: int32
+        description: l
+      historyData:
+        type: string
+        description: ls
+  manager:
+    type: object
+    properties:
+      man_ID:
+        type: integer
+        format: int32
+        description: l
+      man_username:
+        type: string
+        description: l
+      man_name:
+        type: string
+        description: the true name of this man
+      man_password:
+        type: string
+        description: l
+  orderForm:
+    type: object
+    properties:
+      orderID:
+        type: integer
+        format: int32
+        description: number of this order
+      order_detail_ID:
+        type: integer
+        format: int32
+        description: the id of this order's detail
+      money:
+        type: number
+        format: float
+        description: sl
+      createTime:
+        type: string
+        format: date
+        description: l
+      payTime:
+        type: string
+        format: date
+        description: pay time
+      orderStatus:
+        type: integer
+        format: int32
+        description: l
+  permission:
+    type: object
+    properties:
+      permissionID:
+        type: integer
+        format: int32
+        description: id of permission
+      permissionName:
+        type: string
+        description: name of permission
+      permissionUrl:
+        type: string
+        description: l
+  product:
+    type: object
+    properties:
+      pro_ID:
+        type: integer
+        format: int32
+        description: id
+      pro_name:
+        type: string
+        description: name
+      pro_img:
+        type: string
+        description: img
+      pro_price:
+        type: number
+        format: float
+        description: l
+      pro_Info:
+        type: string
+        description: l
+      pro_explain:
+        type: string
+        description: l
+      pro_status:
+        type: integer
+        format: int32
+        description: ls
+  repertory:
+    type: object
+    properties:
+      repe_ID:
+        type: integer
+        format: int32
+        description: lll
+      pro_ID:
+        type: integer
+        format: int32
+        description: l
+      repe_num:
+        type: integer
+        format: int32
+        description: l
+  role:
+    type: object
+    properties:
+      roleID: 
+        type: integer
+        format: int32
+        description: l
+      roleName: 
+        type: string
+        description: name
+      roleDescription:
+        type: string
+        description: l
+  syslog:
+    type: object
+    properties:
+      logID:
+        type: integer
+        format: int32
+        description: le
+      username:
+        type: string
+        description: l
+      visitTime:
+        type: string
+        format: date
+        description: l
+      ip:
+        type: string
+        description: l
+      url:
+        type: string
+        description: l
+      excutime:
+        type: string
+        format: date
+        description: l
+      method:
+        type: string
+        description: l
+        
+  ApiResponse:
+    type: object
+    properties:
+      falg:
+        type: boolean
+        description: is sucessful?
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+        description: return message

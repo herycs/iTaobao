@@ -2,8 +2,10 @@ package com.w.controller.base;
 
 import com.w.domain.Favourable;
 import com.w.service.FavourableService;
+import com.w.domain.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +18,7 @@ import java.util.List;
  * @Date2019/11/14 9:06
  * @Version V1.0
  **/
+@CrossOrigin
 @Controller
 @RequestMapping("/fav")
 public class FavouriteController {
@@ -24,36 +27,39 @@ public class FavouriteController {
     private FavourableService favourableService;
 
     @RequestMapping("/update.do")
-    public String updateFavourable(Favourable favourable){
+    @ResponseBody
+    public JsonData updateFavourable(Favourable favourable){
         int result = favourableService.updateFavourable(favourable);
-        if (result == 1) {
-            return "success";
+        if(result == 1){
+            return JsonData.getUpdateSuccessData();
         }
-        return "filed";
+        return JsonData.getUpdateFailedData();
     }
 
     @RequestMapping("/add.do")
-    public String addFavourable(Favourable favourable){
+    @ResponseBody
+    public JsonData addFavourable(Favourable favourable){
         int result = favourableService.addFavourable(favourable);
-        if (result == 1) {
-            return "success";
+        if (result == 1){
+            return JsonData.getAddSuccessData();
         }
-        return "filed";
+        return JsonData.getAddFailedData();
     }
 
     @RequestMapping("/del.do")
-    public String deleteFavourable(int favID){
+    @ResponseBody
+    public JsonData deleteFavourable(int favID){
         int result = favourableService.deleteFavourable(favID);
-        if (result == 1) {
-            return "success";
+        if (result == 1){
+            return JsonData.getDeleteSuccessData();
         }
-        return "filed";
+        return JsonData.getDeleteFailedData();
     }
 
     @RequestMapping("/findAll.do")
     @ResponseBody
-    public List<Favourable> findAll(){
+    public JsonData findAll(){
         List favList = favourableService.findAllFavourable();
-        return favList;
+        return JsonData.getJsonData(new JsonData(0, "获取数据成功", favList));
     }
 }

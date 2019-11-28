@@ -2,8 +2,10 @@ package com.w.controller.base;
 
 import com.w.domain.Business;
 import com.w.service.BusinessService;
+import com.w.domain.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +18,7 @@ import java.util.List;
  * @Date2019/11/14 9:05
  * @Version V1.0
  **/
+@CrossOrigin
 @Controller
 @RequestMapping("/business")
 public class BusinessController {
@@ -25,31 +28,41 @@ public class BusinessController {
 
     @RequestMapping("/findAll.do")
     @ResponseBody
-    public List<Business> findAllBus(){
-        List<Business> bussinessList = null;
-        bussinessList = businessService.findAllBuss();
-        return bussinessList;
+    public JsonData findAllBus(){
+        List bussinessList = businessService.findAllBuss();
+        return JsonData.getJsonData(new JsonData(0, "获取数据成功", bussinessList));
     }
 
     @RequestMapping("/add.do")
-    public String addBus(Business business){
+    @ResponseBody
+    public JsonData addBus(Business business){
         int result = 0;
-        System.out.println(business.getBus_address());
         result = businessService.addBus(business);
-        return "修改行数是"+result;
+        if (result == 1){
+            return JsonData.getAddSuccessData();
+        }
+        return JsonData.getAddFailedData();
     }
 
     @RequestMapping("/del.do")
-    public int delBus(int busID){
-        int result1 = 0;
-        result1 = businessService.delBus(busID);
-        return result1;
+    @ResponseBody
+    public JsonData delBus(int busID){
+        int result = 0;
+        result = businessService.delBus(busID);
+        if (result == 1){
+            return JsonData.getDeleteSuccessData();
+        }
+        return JsonData.getDeleteFailedData();
     }
 
     @RequestMapping("/update.do")
-    public int updateBus(Business business){
-        int result2 = 0;
-        result2 = businessService.updateBus(business);
-        return result2;
+    @ResponseBody
+    public JsonData updateBus(Business business){
+        int result = 0;
+        result = businessService.updateBus(business);
+        if(result == 1){
+            return JsonData.getUpdateSuccessData();
+        }
+        return JsonData.getUpdateFailedData();
     }
 }

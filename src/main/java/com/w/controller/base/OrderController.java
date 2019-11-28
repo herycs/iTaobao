@@ -2,10 +2,10 @@ package com.w.controller.base;
 
 import com.w.domain.OrderForm;
 import com.w.service.OrderFormService;
-import org.aspectj.weaver.ast.Or;
+import com.w.domain.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.OrderComparator;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,6 +18,7 @@ import java.util.List;
  * @Date2019/11/14 9:07
  * @Version V1.0
  **/
+@CrossOrigin
 @Controller
 @RequestMapping("/order")
 public class OrderController {
@@ -26,36 +27,39 @@ public class OrderController {
     private OrderFormService orderFormService;
 
     @RequestMapping("/update.do")
-    public String updateOrder(OrderForm orderForm){
+    @ResponseBody
+    public JsonData updateOrder(OrderForm orderForm){
         int result = orderFormService.updateOrderForm(orderForm);
-        if (result == 1) {
-            return "success";
+        if(result == 1){
+            return JsonData.getUpdateSuccessData();
         }
-        return "filed";
+        return JsonData.getUpdateFailedData();
     }
 
     @RequestMapping("/add.do")
-    public String addOrder(OrderForm orderForm){
+    @ResponseBody
+    public JsonData addOrder(OrderForm orderForm){
         int result = orderFormService.addOrderForm(orderForm);
-        if (result == 1) {
-            return "success";
+        if (result == 1){
+            return JsonData.getAddSuccessData();
         }
-        return "filed";
+        return JsonData.getAddFailedData();
     }
 
     @RequestMapping("/del.do")
-    public String deleteOrder(int orderID){
+    @ResponseBody
+    public JsonData deleteOrder(int orderID){
         int result = orderFormService.deleteOrderForm(orderID);
-        if (result == 1) {
-            return "success";
+        if (result == 1){
+            return JsonData.getDeleteSuccessData();
         }
-        return "filed";
+        return JsonData.getDeleteFailedData();
     }
 
     @RequestMapping("/findAll.do")
     @ResponseBody
-    public List<OrderForm> findAll(){
-        List OrderList = orderFormService.findAll();
-        return OrderList;
+    public JsonData findAll(){
+        List orderList = orderFormService.findAll();
+        return JsonData.getJsonData(new JsonData(0, "获取数据成功", orderList));
     }
 }

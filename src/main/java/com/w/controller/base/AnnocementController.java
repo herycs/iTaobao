@@ -2,9 +2,12 @@ package com.w.controller.base;
 
 import com.w.domain.Announcement;
 import com.w.service.AnnouncementService;
+import com.w.domain.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.List;
  * @Date2019/11/14 8:37
  * @Version V1.0
  **/
+@CrossOrigin
 @Controller
 @RequestMapping("/anno")
 public class AnnocementController {
@@ -24,36 +28,40 @@ public class AnnocementController {
     private AnnouncementService announcementService;
 
     @RequestMapping("/update.do")
-    public String updateAnno(Announcement announcement){
+    @ResponseBody
+    public JsonData updateAnno(Announcement announcement){
         int result = announcementService.updateAnno(announcement);
         if (result == 1) {
-            return "success";
+            return JsonData.getUpdateSuccessData();
         }
-        return "filed";
+        return JsonData.getUpdateFailedData();
     }
 
     @RequestMapping("/add.do")
-    public String addAnno(Announcement announcement){
+    @ResponseBody
+    public JsonData addAnno(Announcement announcement){
         int result = announcementService.addAnno(announcement);
         if (result == 1) {
-            return "success";
+            return JsonData.getAddSuccessData();
         }
-        return "filed";
+        return JsonData.getAddFailedData();
     }
 
     @RequestMapping("/del.do")
-    public String deleteAnno(String annu_ID){
+    @ResponseBody
+    public JsonData deleteAnno(String annu_ID){
+        int code = -1;
         int result = announcementService.deleteAnno(annu_ID);
         if (result == 1) {
-            return "success";
+            return JsonData.getDeleteSuccessData();
         }
-        return "filed";
+        return JsonData.getDeleteFailedData();
     }
 
     @RequestMapping("/findAll.do")
     @ResponseBody
-    public List<Announcement> findAll(){
+    public JsonData findAll(){
         List annoList = announcementService.findAll();
-        return annoList;
+        return JsonData.getJsonData(new JsonData(0, "获取数据成功", annoList));
     }
 }

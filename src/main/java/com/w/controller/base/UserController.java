@@ -2,13 +2,11 @@ package com.w.controller.base;
 
 import com.w.domain.IUser;
 import com.w.service.UserService;
+import com.w.domain.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,7 @@ import java.util.List;
  * @Date2019/10/18 13:28
  * @Version V1.0
  **/
+@CrossOrigin
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -53,26 +52,22 @@ public class UserController {
     }
 
     @RequestMapping("/active.do")
-    public String activeUser(String activeCode){
+    @ResponseBody
+    public JsonData activeUser(String activeCode){
         int active = userService.active(activeCode);
         if (active > 0) {
             //用户激活成功
-            return "ok";
+            return new JsonData(0, "用户激活成功", null);
         }
         //用户激活失败
-        return "error";
+        return new JsonData(0, "用户激活成功", null);
     }
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(){
-        ModelAndView modelAndView=new ModelAndView();
-        List<IUser> IUsers = userService.findAll();
-        for(IUser u: IUsers){
-            System.out.println(u.toString());
-        }
-        modelAndView.addObject("users", IUsers);
-        modelAndView.setViewName("userList");
-        return modelAndView;
+    @ResponseBody
+    public JsonData findAll(){
+        List IUsers = userService.findAll();
+        return JsonData.getJsonData(new JsonData(0, "获取数据成功", IUsers));
     }
 
     @RequestMapping("/login.do")
