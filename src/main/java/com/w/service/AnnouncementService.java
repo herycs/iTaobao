@@ -13,14 +13,14 @@ import java.util.List;
  **/
 public interface AnnouncementService {
 
-    public int addAnno(Announcement announcement);
+    int addAnno(Announcement announcement);
 
-    public int deleteAnno(String Anno_ID);
+    int deleteAnno(int Anno_ID);
 
-    public int updateAnno(Announcement announcement);
+    int updateAnno(Announcement announcement);
 
-    public List<Announcement> findAll();
+    List<Announcement> findAll();
 
-    public List<Announcement> findOneByID(Announcement announcement);
+    List<Announcement> findOneByID(int annoID);
 
 }

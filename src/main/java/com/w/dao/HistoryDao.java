@@ -23,7 +23,7 @@ public interface HistoryDao {
 
 //    删除历史记录
     @Delete("delete from history where historyID = #{historyID}")
-    int deleteHistory(String historyID);
+    int deleteHistory(int historyID);
 
 //    更新历史记录
     @Update("update history set "+
@@ -34,7 +34,7 @@ public interface HistoryDao {
 
 //    查询历史记录
     @Select("select * from history where historyID = #{historyID}")
-    List<History> findHistoryByID(String historyID);
+    List<History> findHistoryByID(int historyID);
 
     @Select("select * from history")
     List<History> findAllHistory();

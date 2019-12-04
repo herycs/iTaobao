@@ -24,7 +24,7 @@ public interface PermissionDao {
 
     //delete
     @Delete("delete from permission where permissionID = #{permissionID}")
-    int deletePermission(String permissionID);
+    int deletePermission(int permissionID);
 
     //update
     @Update("update permission set " +
@@ -35,7 +35,7 @@ public interface PermissionDao {
 
     //select
     @Select("select * form permission where permissionID = #{permission.permissionID}")
-    List<Permission> findOneByID(String permissionID);
+    List<Permission> findOneByID(int permissionID);
     @Select("select * from permission")
     List<Permission> findAll();
 }

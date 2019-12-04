@@ -35,7 +35,7 @@ public interface AnnouncementDao {
 
 
     @Select("select * from announcement where annu_ID = #{announcementID}")
-    List<Announcement> findAnnouncementByID(String announcementID);
+    List<Announcement> findAnnouncementByID(int announcementID);
 
     @Select("select * from announcement")
     List<Announcement> findAllAnnouncement();

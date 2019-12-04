@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface PermissionService {
     public  int addPermission(Permission permission);
-    public  int deletePermission(String permissionID);
+    public  int deletePermission(int permissionID);
     public  int updatePermission(Permission permission);
-    public List<Permission> findOneByID(String permissionID);
+    public List<Permission> findOneByID(int permissionID);
     public   List<Permission> findAll();
 }

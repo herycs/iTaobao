@@ -27,7 +27,7 @@ public interface ManagerDao {
 
 //    删除管理员
     @Delete("delete from manager where man_ID = #{man_ID}")
-    int deleteManager(String man_ID);
+    int deleteManager(int man_ID);
 
 //    更新管理员信息
     @Update("update manager set "+
@@ -40,11 +40,11 @@ public interface ManagerDao {
 //    查询管理员
 
     @Select("select * from manager where man_name = #{man_name}")
-    List<Manager> findManagerByName(String man_name);
+    List<Manager> findManagerByName(String  man_name);
 
 
     @Select("select * from manager where man_ID = #{managerID}")
-    List<Manager> findManagerByID(String managerID);
+    List<Manager> findManagerByID(int managerID);
 
     @Select("select * from manager")
     List<Manager> findAllManager();

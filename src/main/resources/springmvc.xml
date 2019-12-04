@@ -35,14 +35,12 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding"><value>UTF-8</value></property>
         <property name="maxUploadSize"><value>5400000</value></property>
-        <property name="uploadTempDir"><value>fileUpload/temp</value></property>
+<!--        <property name="uploadTempDir"><value>fileUpload/temp</value></property>-->
     </bean>
 
     <!--过滤静态资源-->
     <mvc:resources location="/css/" mapping="/css/**" />
-    <mvc:resources location="/images/" mapping="/images/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
-    <mvc:resources location="/pages/" mapping="/pages/**" />
 
     <!--开启SpringMVC注解的支持-->
     <mvc:annotation-driven>

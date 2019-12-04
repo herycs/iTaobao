@@ -8,12 +8,12 @@ public interface ManagerService {
 	
 	int addManager(Manager manager);
 
-    int deleteManager(String managerID);
+    int deleteManager(int managerID);
 
     int updateManager(Manager manager);
 
     List<Manager> findAllManager();
 
-    Manager findOneByID(String managerId);
+    Manager findOneByID(int managerId);
 
 }

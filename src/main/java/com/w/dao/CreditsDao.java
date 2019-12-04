@@ -22,7 +22,7 @@ public interface CreditsDao {
 
 //    删除
     @Delete("delete from credits where creditsID = #{creditsID}")
-    int deleteCredits(String creditsID);
+    int deleteCredits(Integer creditsID);
 
 //    更新
     @Update("update credits set "+
@@ -33,7 +33,7 @@ public interface CreditsDao {
 
 //    查询
     @Select("select * from credits where creditsID = #{creditsID}")
-    List<Credits> findCreditsByID(String creditsID);
+    List<Credits> findCreditsByID(Integer creditsID);
 
     @Select("select * from credits")
     List<Credits> findAllCredits();

@@ -10,12 +10,12 @@ public interface CreditsService {
 	
 	int addCredits(Credits credits);
 
-    int deleteCredits(String creditsID);
+    int deleteCredits(Integer creditsID);
 
     int updateCredits(Credits credits);
 
     List<Credits> findAllCredits();
 
-    Credits findOneByID(String creditsId);
+    Credits findOneByID(Integer creditsId);
 
 }

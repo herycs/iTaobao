@@ -29,7 +29,7 @@ public class CreditsServiceImpl implements CreditsService {
 	}
 
 	@Override
-	public int deleteCredits(String creditsID) {
+	public int deleteCredits(Integer creditsID) {
 		int result = credictsDao.deleteCredits(creditsID);
 		return result;
 	}
@@ -46,7 +46,7 @@ public class CreditsServiceImpl implements CreditsService {
 	}
 
 	@Override
-	public Credits findOneByID(String creditsId) {
+	public Credits findOneByID(Integer creditsId) {
 		return (Credits) credictsDao.findCreditsByID(creditsId);
 	}
 

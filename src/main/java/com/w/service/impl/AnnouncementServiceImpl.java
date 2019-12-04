@@ -28,8 +28,8 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     }
 
     @Override
-    public int deleteAnno(String Anno_ID) {
-        int result1 = announcementDao.deleteAnnouncement(Integer.parseInt(Anno_ID));
+    public int deleteAnno(int anno_ID) {
+        int result1 = announcementDao.deleteAnnouncement(anno_ID);
         return result1;
     }
 
@@ -41,12 +41,22 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
     @Override
     public List<Announcement> findAll() {
-        List<Announcement> announcementList = announcementDao.findAllAnnouncement();
-        return announcementList;
+        return (List<Announcement>)announcementDao.findAllAnnouncement();
     }
 
     @Override
-    public List<Announcement> findOneByID(Announcement announcement) {
-        return null;
+    public List<Announcement> findOneByID(int annoID) {
+//        从redis中查询
+//        announcement = (List) redisTemplate.opsForValue().get("announcement_"+annoID);
+//        System.out.println("redis查询");
+//        if (announcement == null) {
+//            System.out.println("数据库查询");
+//            announcement = announcementDao.findAnnouncementByID(annoID);
+////            存入session中并设置存货时间
+//            redisTemplate.opsForValue().set("announcement_"+annoID, announcement, 10, TimeUnit.SECONDS);
+//        }
+        List<Announcement> announcement = null;
+        announcement = announcementDao.findAnnouncementByID(annoID);
+        return announcement;
     }
 }

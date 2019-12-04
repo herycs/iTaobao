@@ -29,7 +29,7 @@ public class HistoryServiceImpl implements HistoryService {
 	}
 
 	@Override
-	public int deleteHistory(String historyID) {
+	public int deleteHistory(int historyID) {
 		int result = historyDao.deleteHistory(historyID);
 		return result;
 	}
@@ -46,7 +46,7 @@ public class HistoryServiceImpl implements HistoryService {
 	}
 
 	@Override
-	public History findOneByID(String historyId) {
+	public History findOneByID(int historyId) {
 		// TODO Auto-generated method stub
 		return (History) historyDao.findHistoryByID(historyId);
 	}

@@ -8,12 +8,12 @@ public interface HistoryService {
 	
 	int addHistory(History history);
 
-    int deleteHistory(String historyID);
+    int deleteHistory(int historyID);
 
     int updateHistory(History history);
 
     List<History> findAllHistory();
 
-    History findOneByID(String historyId);
+    History findOneByID(int historyId);
 
 }

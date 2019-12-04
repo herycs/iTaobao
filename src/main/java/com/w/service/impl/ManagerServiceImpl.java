@@ -29,7 +29,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public int deleteManager(String managerID) {
+	public int deleteManager(int managerID) {
 		int result = managerDao.deleteManager(managerID);
 		return result;
 	}
@@ -47,7 +47,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public Manager findOneByID(String managerId) {
+	public Manager findOneByID(int managerId) {
 		return (Manager) managerDao.findManagerByID(managerId);
 	}
 

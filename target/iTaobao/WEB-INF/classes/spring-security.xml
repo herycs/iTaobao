@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <security:global-method-security jsr250-annotations="enabled"></security:global-method-security>
+
     <!-- 配置不过滤的资源（静态资源及登录相关） -->
     <security:http security="none" pattern="/reg1.jsp" />
     <security:http security="none" pattern="/login1.jsp" />

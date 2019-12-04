@@ -27,7 +27,7 @@ public class PermissionServiceImpl implements PermissionService{
         return result;
     }
     @Override
-    public  int deletePermission(String permissionID){
+    public  int deletePermission(int permissionID){
         int result1 = permissionDao.deletePermission(permissionID);
         return result1;
     }
@@ -37,7 +37,7 @@ public class PermissionServiceImpl implements PermissionService{
         return result2;
     }
     @Override
-    public List<Permission> findOneByID(String permissionID){
+    public List<Permission> findOneByID(int permissionID){
         List<Permission> permissionList = permissionDao.findOneByID(permissionID);
         return permissionList;
     }
