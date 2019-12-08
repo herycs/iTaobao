@@ -6,14 +6,14 @@ import com.w.domain.Favourable;
 
 public interface FavourableService {
 	
-	int addFavourable(Favourable favourable);
+	int addFavourable(Favourable favourable) throws Exception;
 
-    int deleteFavourable(int favourableID);
+    int deleteFavourable(int favourableID) throws Exception;
 
-    int updateFavourable(Favourable favourable);
+    int updateFavourable(Favourable favourable) throws Exception;
 
-    List<Favourable> findAllFavourable();
+    List<Favourable> findAllFavourable() throws Exception;
 
-    Favourable findOneByID(int favourableId);
+    Favourable findOneByID(int favourableId) throws Exception;
 
 }

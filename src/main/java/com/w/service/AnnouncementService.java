@@ -13,14 +13,14 @@ import java.util.List;
  **/
 public interface AnnouncementService {
 
-    int addAnno(Announcement announcement);
+    int addAnno(Announcement announcement) throws Exception;
 
-    int deleteAnno(int Anno_ID);
+    int deleteAnno(int Anno_ID) throws Exception;
 
-    int updateAnno(Announcement announcement);
+    int updateAnno(Announcement announcement) throws Exception;
 
-    List<Announcement> findAll();
+    List<Announcement> findAll() throws Exception;
 
-    List<Announcement> findOneByID(int annoID);
+    List<Announcement> findOneByID(int annoID) throws Exception;
 
 }

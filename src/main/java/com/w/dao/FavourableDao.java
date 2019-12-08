@@ -4,6 +4,7 @@ import com.w.domain.Favourable;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -25,11 +26,11 @@ public interface FavourableDao {
                     "#{favourable.fav_price},"+
                     "#{favourable.fav_method}" +
                     ")")
-    int addFavourable(@Param("favourable") Favourable favourable);
+    int addFavourable(@Param("favourable") Favourable favourable) throws SQLException;
 
 //    删除商品
     @Delete("delete from favourable where fav_ID = #{fav_ID}")
-    int deleteFavourable(int fav_ID);
+    int deleteFavourable(int fav_ID) throws SQLException;
 
 //    更新商品信息
     @Update("update favourable set "+
@@ -38,19 +39,19 @@ public interface FavourableDao {
                 "fav_price = #{favourable.fav_price}, "+
                 "fav_method = #{favourable.fav_method} "+
                 "where fav_ID = #{favourable.fav_ID}")
-    int updateFavourable(@Param("favourable") Favourable favourable);
+    int updateFavourable(@Param("favourable") Favourable favourable) throws SQLException;
 
 //    查询产品
     @Select("select * from favourable where fav_name = #{fav_name}")
-    List<Favourable> findFavourableByName(String fav_name);
+    List<Favourable> findFavourableByName(String fav_name) throws SQLException;
 
     @Select("select * from favourable where fav_ID = #{favourableID}")
-    List<Favourable> findFavourableByID(int favourableID);
+    List<Favourable> findFavourableByID(int favourableID) throws SQLException;
 
     @Select("select * from favourable")
-    List<Favourable> findAllFavourable();
+    List<Favourable> findAllFavourable() throws SQLException;
 
 //    查询总数
     @Select("select count(*) from favourable")
-    int countFavourableNum();
+    int countFavourableNum() throws SQLException;
 }

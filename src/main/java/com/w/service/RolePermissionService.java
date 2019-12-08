@@ -12,8 +12,8 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface RolePermissionService {
-    int addRolePremission(RolePermission rolePermission);
-    int deleteRolePremission(int rolePermissionID);
-    int updateRolePremission(RolePermission rolePermission);
-    List<RolePermission> findAll();
+    int addRolePremission(RolePermission rolePermission) throws Exception;
+    int deleteRolePremission(int rolePermissionID) throws Exception;
+    int updateRolePremission(RolePermission rolePermission) throws Exception;
+    List<RolePermission> findAll() throws Exception;
 }

@@ -6,14 +6,14 @@ import com.w.domain.Collect;
 
 public interface CollectService {
 	
-	int addCollect(Collect collect);
+	int addCollect(Collect collect) throws Exception;
 
-    int deleteCollect(int collectID);
+    int deleteCollect(int collectID) throws Exception;
 
-    int updateCollect(Collect collect);
+    int updateCollect(Collect collect) throws Exception;
 
-    List<Collect> findAllCollect();
+    List<Collect> findAllCollect() throws Exception;
 
-    Collect findOneByID(int collectId);
+    Collect findOneByID(int collectId) throws Exception;
 
 }

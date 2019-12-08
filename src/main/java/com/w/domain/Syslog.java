@@ -1,5 +1,8 @@
 package com.w.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -26,6 +29,8 @@ public class Syslog {
 
     Integer logID;
     String username;
+    @JsonFormat(locale = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date visitTime;
     String ip;
     String url;

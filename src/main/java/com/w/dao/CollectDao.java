@@ -17,7 +17,7 @@ import java.util.List;
 public interface CollectDao {
 
 //    添加
-    @Insert("insert into collect(userID,favourite_status) values(#{collect.userID},#{collect.favourite_status})")
+    @Insert("insert into collect(userID,pro_ID,favourite_status) values(#{collect.userID},#{collect.pro_ID},#{collect.favourite_status})")
     int addCollect(@Param("collect") Collect collect);
 
 //    删除
@@ -27,6 +27,7 @@ public interface CollectDao {
 //    更新信息
     @Update("update collect set "+
                 "userID = #{collect.userID}, "+
+                "pro_ID = #{collect.pro_ID}, "+
                 "favourite_status = #{collect.favourite_status} "+
                 "where collectID = #{collect.collectID}")
     int updateCollect(@Param("collect") Collect collect);

@@ -23,30 +23,31 @@ public class IUserServiceImpl implements IUserService {
 	private IUserDao iUserDao;
 	
 	@Override
-	public int addIUser(IUser iUser) {
+	public int addIUser(IUser iUser) throws Exception{
+		System.out.println(iUser.getBirthday());
 		int result = iUserDao.save(iUser);
 		return result;
 	}
 
 	@Override
-	public int deleteIUser(IUser iUser) {
-		int result = iUserDao.deleteUser(iUser);
+	public int deleteIUser(int userID) throws Exception{
+		int result = iUserDao.deleteUser(userID);
 		return result;
 	}
 
 	@Override
-	public int updateIUser(IUser iUser) {
+	public int updateIUser(IUser iUser) throws Exception{
 		int result = iUserDao.updateUser(iUser);
 		return result;
 	}
 
 	@Override
-	public List<IUser> findAllIUser() {
+	public List<IUser> findAllIUser() throws Exception{
 		return iUserDao.findAll();
 	}
 
 	@Override
-	public IUser findOneByUser(IUser iUser) {
+	public IUser findOneByUser(IUser iUser) throws Exception{
 		return iUserDao.findUser(iUser);
 	}
 

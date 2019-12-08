@@ -23,30 +23,30 @@ public class HistoryServiceImpl implements HistoryService {
 	private HistoryDao historyDao;
 	
 	@Override
-	public int addHistory(History history) {
+	public int addHistory(History history) throws Exception{
 		int result = historyDao.addHistory(history);
 		return result;
 	}
 
 	@Override
-	public int deleteHistory(int historyID) {
+	public int deleteHistory(int historyID) throws Exception{
 		int result = historyDao.deleteHistory(historyID);
 		return result;
 	}
 
 	@Override
-	public int updateHistory(History history) {
+	public int updateHistory(History history) throws Exception{
 		int result = historyDao.updateHistory(history);
 		return result;
 	}
 
 	@Override
-	public List<History> findAllHistory() {
+	public List<History> findAllHistory() throws Exception{
 		return historyDao.findAllHistory();
 	}
 
 	@Override
-	public History findOneByID(int historyId) {
+	public History findOneByID(int historyId) throws Exception{
 		// TODO Auto-generated method stub
 		return (History) historyDao.findHistoryByID(historyId);
 	}

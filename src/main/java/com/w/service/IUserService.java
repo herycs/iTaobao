@@ -6,14 +6,14 @@ import com.w.domain.IUser;
 
 public interface IUserService {
 	
-	int addIUser(IUser iUser);
+	int addIUser(IUser iUser) throws Exception;
 
-    int deleteIUser(IUser iUser);
+    int deleteIUser(int userID) throws Exception;
 
-    int updateIUser(IUser iUser);
+    int updateIUser(IUser iUser) throws Exception;
 
-    List<IUser> findAllIUser();
+    List<IUser> findAllIUser() throws Exception;
 
-    IUser findOneByUser(IUser iUser);
+    IUser findOneByUser(IUser iUser) throws Exception;
 
 }

@@ -24,13 +24,13 @@ public class Result {
         this.msg = msg;
     }
 
-    public Result(Integer code, String msg, List<Object> data) {
+    public Result(Integer code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public Result(Integer code, String msg, Integer count, List<Object> data) {
+    public Result(Integer code, String msg, Integer count, Object data) {
         this.code = code;
         this.msg = msg;
         this.count = count;

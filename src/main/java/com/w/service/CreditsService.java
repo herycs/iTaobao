@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 @Service("creditsService")
 public interface CreditsService {
 	
-	int addCredits(Credits credits);
+	int addCredits(Credits credits) throws Exception;
 
-    int deleteCredits(Integer creditsID);
+    int deleteCredits(Integer creditsID) throws Exception;
 
-    int updateCredits(Credits credits);
+    int updateCredits(Credits credits) throws Exception;
 
-    List<Credits> findAllCredits();
+    List<Credits> findAllCredits() throws Exception;
 
-    Credits findOneByID(Integer creditsId);
+    Credits findOneByID(Integer creditsId) throws Exception;
 
 }

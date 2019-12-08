@@ -6,14 +6,14 @@ import com.w.domain.Manager;
 
 public interface ManagerService {
 	
-	int addManager(Manager manager);
+	int addManager(Manager manager) throws Exception;
 
-    int deleteManager(int managerID);
+    int deleteManager(int managerID) throws Exception;
 
-    int updateManager(Manager manager);
+    int updateManager(Manager manager) throws Exception;
 
-    List<Manager> findAllManager();
+    List<Manager> findAllManager() throws Exception;
 
-    Manager findOneByID(int managerId);
+    Manager findOneByID(int managerId) throws Exception;
 
 }

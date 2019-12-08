@@ -1,18 +1,17 @@
 package com.w.test;
 
 import com.w.dao.IUserDao;
-import com.w.dao.RoleDao;
 import com.w.domain.IUser;
 import com.w.util.JedisUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.Jedis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -28,13 +27,13 @@ public class RedisTest {
 
     private IUserDao iUserDao;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         RedisTest redisTest = new RedisTest();
         List list = redisTest.findALL();
         System.out.println(list.toArray());
     }
 
-    public List<IUser> findALL() throws IOException {
+    public List<IUser> findALL() throws IOException, SQLException {
         InputStream input = Resources.getResourceAsStream("user.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = sqlSessionFactory.openSession();

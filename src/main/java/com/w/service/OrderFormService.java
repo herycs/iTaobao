@@ -8,9 +8,9 @@ import java.util.List;
  * @author ming
  */
 public interface OrderFormService {
-    public  int addOrderForm(OrderForm orderForm);
-    public  int deleteOrderForm(int orderID);
-    public  int updateOrderForm(OrderForm orderForm);
-    public List<OrderForm> findAll();
-    public  List<OrderForm> findOrderFormByID(int orderID);
+    public  int addOrderForm(OrderForm orderForm) throws Exception;
+    public  int deleteOrderForm(int orderID) throws Exception;
+    public  int updateOrderForm(OrderForm orderForm) throws Exception;
+    public List<OrderForm> findAll() throws Exception;
+    public  List<OrderForm> findOrderFormByID(int orderID) throws Exception;
 }

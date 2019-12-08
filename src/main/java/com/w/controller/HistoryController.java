@@ -28,7 +28,7 @@ public class HistoryController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{hisID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateHistory(@PathVariable("hisID") int hisID, @RequestBody History history){
+    public Result updateHistory(@PathVariable("hisID") int hisID, @RequestBody History history) throws Exception {
         history.setHistoryID(hisID);
         int result = historyService.updateHistory(history);
         if(result == 1){
@@ -40,7 +40,7 @@ public class HistoryController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addHistory(@RequestBody History history){
+    public Result addHistory(@RequestBody History history) throws Exception {
         int result = historyService.addHistory(history);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class HistoryController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{hisID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteHistory(@PathVariable("hisID") int hisID){
+    public Result deleteHistory(@PathVariable("hisID") int hisID) throws Exception {
         int result = historyService.deleteHistory(hisID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class HistoryController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List historyList = historyService.findAllHistory();
         return new Result(StateCode.SUCCESS, "获取数据成功", historyList);
     }

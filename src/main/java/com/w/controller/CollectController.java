@@ -28,7 +28,7 @@ public class CollectController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{collID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateColl(@PathVariable("collID")int collID, @RequestBody Collect collect){
+    public Result updateColl(@PathVariable("collID")int collID, @RequestBody Collect collect) throws Exception {
         collect.setCollectID(collID);
         int result = collectService.updateCollect(collect);
         if(result == 1){
@@ -40,7 +40,7 @@ public class CollectController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addColl(@RequestBody Collect collect){
+    public Result addColl(@RequestBody Collect collect) throws Exception {
         int result = collectService.addCollect(collect);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class CollectController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{collectID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteColl(@PathVariable("collectID") int collectID){
+    public Result deleteColl(@PathVariable("collectID") int collectID) throws Exception {
         int result = collectService.deleteCollect(collectID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class CollectController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List collectList = collectService.findAllCollect();
         return new Result(StateCode.SUCCESS, "数据获取成功", collectList);
     }

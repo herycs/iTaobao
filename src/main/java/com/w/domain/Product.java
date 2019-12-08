@@ -91,4 +91,5 @@ public class Product implements Serializable {
     public void setPro_status(Integer pro_status) {
         this.pro_status = pro_status;
     }
+
 }

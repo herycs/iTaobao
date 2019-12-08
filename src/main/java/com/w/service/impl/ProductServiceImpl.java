@@ -22,43 +22,43 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public int addProduct(Product product){
+    public int addProduct(Product product) throws Exception{
         int result = productDao.addProduct(product);
         return result;
     }
 
     @Override
-    public int deleteProduct(int productId){
+    public int deleteProduct(int productId) throws Exception{
         int result1 = productDao.deleteProduct(productId);
         return result1;
     }
 
     @Override
-    public int updateProduct(Product product){
+    public int updateProduct(Product product) throws Exception{
         int result2 = productDao.updateProduct(product);
         return result2;
     }
 
     @Override
-    public List<Product> findProductByName(Product product){
+    public List<Product> findProductByName(Product product) throws Exception{
         List<Product> productList = productDao.findProductByName(product);
         return productList;
     }
 
     @Override
-    public  List<Product> findProductByID(Product product){
+    public  List<Product> findProductByID(Product product) throws Exception{
         List<Product> productList1 = productDao.findProductByID(product);
         return productList1;
     }
 
     @Override
-    public List<Product> findAllProduct(){
+    public List<Product> findAllProduct() throws Exception{
         List<Product> productList2 = productDao.findAllProduct();
         return productList2;
     }
 
     @Override
-    public int countProductNum(){
+    public int countProductNum() throws Exception{
         return productDao.countProductNum();
     }
 

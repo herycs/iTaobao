@@ -28,7 +28,7 @@ public class FavouriteController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{favID}", method = RequestMethod.POST)
     @ResponseBody
-    public Result updateFavourable(@PathVariable("favID") int favID, @RequestBody Favourable favourable){
+    public Result updateFavourable(@PathVariable("favID") int favID, @RequestBody Favourable favourable) throws Exception {
         favourable.setFav_ID(favID);
         int result = favourableService.updateFavourable(favourable);
         if(result == 1){
@@ -40,7 +40,7 @@ public class FavouriteController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addFavourable(@RequestBody Favourable favourable){
+    public Result addFavourable(@RequestBody Favourable favourable) throws Exception {
         int result = favourableService.addFavourable(favourable);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class FavouriteController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{favID}",  method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteFavourable(@PathVariable("favID") int favID){
+    public Result deleteFavourable(@PathVariable("favID") int favID) throws Exception {
         int result = favourableService.deleteFavourable(favID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class FavouriteController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List favList = favourableService.findAllFavourable();
         return new Result(StateCode.SUCCESS, "获取数据成功", favList);
     }

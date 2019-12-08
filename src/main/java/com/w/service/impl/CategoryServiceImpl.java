@@ -23,31 +23,31 @@ public class CategoryServiceImpl implements CategoryService {
 	private CategoryDao categoryDao;
 	
 	@Override
-	public int addCategory(Category category) {
+	public int addCategory(Category category) throws Exception{
 		int result = categoryDao.addCategory(category);
 		return result;
 	}
 
 	@Override
-	public int deleteCategory(int categoryID) {
+	public int deleteCategory(int categoryID) throws Exception{
 		int result = categoryDao.deleteCategory(categoryID);
 		return result;
 	}
 
 	@Override
-	public int updateCategory(Category category) {
+	public int updateCategory(Category category) throws Exception{
 		int result = categoryDao.updateCategory(category);
 		return result;
 	}
 
 	@Override
-	public List<Category> findAllCategory() {
+	public List<Category> findAllCategory() throws Exception{
 		
 		return categoryDao.findAllCategory();
 	}
 
 	@Override
-	public Category findOneByID(int categoryId) {
+	public Category findOneByID(int categoryId) throws Exception{
 		// TODO Auto-generated method stub
 		return (Category) categoryDao.findCategoryByID(categoryId);
 	}

@@ -23,31 +23,31 @@ public class OrderFormServiceImpl implements OrderFormService {
     private OrderFormDao orderFormDao;
 
     @Override
-    public  int addOrderForm(OrderForm orderForm){
+    public  int addOrderForm(OrderForm orderForm) throws Exception{
         int result = orderFormDao.addOrderForm(orderForm);
         return result;
     }
 
     @Override
-    public  int deleteOrderForm(int orderID){
+    public  int deleteOrderForm(int orderID) throws Exception{
         int result1 = orderFormDao.deleteOrderForm(orderID);
         return result1;
     }
 
     @Override
-    public  int updateOrderForm( OrderForm orderForm){
+    public  int updateOrderForm( OrderForm orderForm) throws Exception{
         int result2 = orderFormDao.updateOrderForm(orderForm);
         return result2;
     }
 
     @Override
-    public List<OrderForm> findAll(){
+    public List<OrderForm> findAll() throws Exception{
         List<OrderForm> orderFormList = orderFormDao.findAll();
         return  orderFormList;
     }
 
     @Override
-    public  List<OrderForm> findOrderFormByID(int orderID){
+    public  List<OrderForm> findOrderFormByID(int orderID) throws Exception{
         List<OrderForm> orderFormList1 = orderFormDao.findOrderFormByID(orderID);
         return orderFormList1;
     }

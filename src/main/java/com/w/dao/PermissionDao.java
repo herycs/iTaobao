@@ -4,6 +4,7 @@ import com.w.domain.Permission;
 import org.apache.ibatis.annotations.*;
 import org.springframework.security.core.parameters.P;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -20,22 +21,22 @@ public interface PermissionDao {
             "#{permission.permissionName}" +
             ", #{permission.permissionUrl}" +
             ")")
-    int addPermission(@Param("permission")Permission permission);
+    int addPermission(@Param("permission")Permission permission) throws SQLException;
 
     //delete
     @Delete("delete from permission where permissionID = #{permissionID}")
-    int deletePermission(int permissionID);
+    int deletePermission(int permissionID) throws SQLException;
 
     //update
     @Update("update permission set " +
             "permissionName = #{permission.permissionName}," +
             " permissionUrl = #{permission.permissionUrl}" +
             "where permissionID = #{permission.permissionID}")
-    int updatePermission(@Param("permission")Permission permission);
+    int updatePermission(@Param("permission")Permission permission) throws SQLException;
 
     //select
     @Select("select * form permission where permissionID = #{permission.permissionID}")
-    List<Permission> findOneByID(int permissionID);
+    List<Permission> findOneByID(int permissionID) throws SQLException;
     @Select("select * from permission")
-    List<Permission> findAll();
+    List<Permission> findAll() throws SQLException;
 }

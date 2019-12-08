@@ -23,31 +23,31 @@ public class ManagerServiceImpl implements ManagerService {
 	private ManagerDao managerDao;
 	
 	@Override
-	public int addManager(Manager manager) {
+	public int addManager(Manager manager) throws Exception{
 		int result = managerDao.addManager(manager);
 		return result;
 	}
 
 	@Override
-	public int deleteManager(int managerID) {
+	public int deleteManager(int managerID) throws Exception{
 		int result = managerDao.deleteManager(managerID);
 		return result;
 	}
 
 	@Override
-	public int updateManager(Manager manager) {
+	public int updateManager(Manager manager) throws Exception{
 		int result = managerDao.updateManager(manager);
 		return result;
 	}
 
 	@Override
-	public List<Manager> findAllManager() {
+	public List<Manager> findAllManager() throws Exception{
 		List managers = managerDao.findAllManager();
 		return managers;
 	}
 
 	@Override
-	public Manager findOneByID(int managerId) {
+	public Manager findOneByID(int managerId) throws Exception{
 		return (Manager) managerDao.findManagerByID(managerId);
 	}
 

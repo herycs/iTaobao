@@ -23,24 +23,24 @@ public class RolePermissionServiceImpl implements RolePermissionService {
     private RolePremissionDao rolePermissionDao;
 
     @Override
-    public int addRolePremission(RolePermission rolePermission) {
+    public int addRolePremission(RolePermission rolePermission) throws Exception{
         int result = rolePermissionDao.addPremissionForUser(rolePermission);
         return result;
     }
 
     @Override
-    public int deleteRolePremission(int rolePermissionID) {
+    public int deleteRolePremission(int rolePermissionID) throws Exception{
         int result = rolePermissionDao.removePremissionFromUser(rolePermissionID);
         return result;
     }
 
     @Override
-    public int updateRolePremission(RolePermission rolePermission) {
+    public int updateRolePremission(RolePermission rolePermission) throws Exception{
         return 0;
     }
 
     @Override
-    public List<RolePermission> findAll() {
+    public List<RolePermission> findAll() throws Exception{
         List<RolePermission> lists = rolePermissionDao.findAllPremission();
         return lists;
     }

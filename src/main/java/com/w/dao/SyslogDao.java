@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.security.core.parameters.P;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -20,10 +21,10 @@ public interface SyslogDao {
 
     //查找所有日志
     @Select("select * from syslog")
-    List<Syslog> findAllLogs();
+    List<Syslog> findAllLogs() throws SQLException;
 
     @Delete("delete from syslog where logID = #{syslogID}")
-    int delSyslog(int syslogID);
+    int delSyslog(int syslogID) throws SQLException;
 
     @Insert("insert into syslog(username, visitTime, ip, url, excutionTime, method)" +
             "values(" +
@@ -34,5 +35,5 @@ public interface SyslogDao {
                 "#{syslog.excutionTime}," +
                 "#{syslog.method}" +
             ")")
-    int addSyslog(@Param("syslog") Syslog syslog);
+    int addSyslog(@Param("syslog") Syslog syslog) throws SQLException;
 }

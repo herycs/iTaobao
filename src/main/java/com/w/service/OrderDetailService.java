@@ -8,9 +8,9 @@ import java.util.List;
  * @author ming
  */
 public interface OrderDetailService {
-    public int addOrderDetail(OrderDetail orderDetail);
-    public int deleteOrderDatail(OrderDetail orderDetail);
-    public  int  updateOrderDetail(OrderDetail orderDetail);
-    public List<OrderDetail> findAll(String orderDetailID);
-    public   List<OrderDetail> findOne(String orderDetailID);
+    public int addOrderDetail(OrderDetail orderDetail) throws Exception;
+    public int deleteOrderDatail(OrderDetail orderDetail) throws Exception;
+    public  int  updateOrderDetail(OrderDetail orderDetail) throws Exception;
+    public List<OrderDetail> findAll(String orderDetailID) throws Exception;
+    public   List<OrderDetail> findOne(String orderDetailID) throws Exception;
 }

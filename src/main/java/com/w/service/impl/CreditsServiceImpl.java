@@ -23,30 +23,30 @@ public class CreditsServiceImpl implements CreditsService {
 	private CreditsDao credictsDao;
 	
 	@Override
-	public int addCredits(Credits credits) {
+	public int addCredits(Credits credits) throws Exception{
 		int result = credictsDao.addCredits(credits);
 		return result;
 	}
 
 	@Override
-	public int deleteCredits(Integer creditsID) {
+	public int deleteCredits(Integer creditsID) throws Exception{
 		int result = credictsDao.deleteCredits(creditsID);
 		return result;
 	}
 
 	@Override
-	public int updateCredits(Credits credits) {
+	public int updateCredits(Credits credits) throws Exception{
 		int result = credictsDao.updateCredits(credits);
 		return result;
 	}
 
 	@Override
-	public List<Credits> findAllCredits() {
+	public List<Credits> findAllCredits() throws Exception{
 		return credictsDao.findAllCredits();
 	}
 
 	@Override
-	public Credits findOneByID(Integer creditsId) {
+	public Credits findOneByID(Integer creditsId) throws Exception{
 		return (Credits) credictsDao.findCreditsByID(creditsId);
 	}
 

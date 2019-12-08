@@ -12,7 +12,7 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface SyslogService {
-    List<Syslog> findAll();
-    int delSyslog(int syslogID);
-    int addSyslog(Syslog syslog);
+    List<Syslog> findAll() throws Exception;
+    int delSyslog(int syslogID) throws Exception;
+    int addSyslog(Syslog syslog) throws Exception;
 }

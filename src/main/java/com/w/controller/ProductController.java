@@ -28,7 +28,7 @@ public class ProductController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{proID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateProduct(@PathVariable("proID") int proID, @RequestBody Product product){
+    public Result updateProduct(@PathVariable("proID") int proID, @RequestBody Product product) throws Exception {
         product.setPro_ID(proID);
         int result = productService.updateProduct(product);
         if(result == 1){
@@ -40,7 +40,7 @@ public class ProductController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addProduct(Product product){
+    public Result addProduct(Product product) throws Exception {
         int result = productService.addProduct(product);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class ProductController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{productID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteProduct(@PathVariable("productID") int productID){
+    public Result deleteProduct(@PathVariable("productID") int productID) throws Exception {
         int result = productService.deleteProduct(productID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class ProductController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List productList = productService.findAllProduct();
         return new Result(StateCode.SUCCESS, "获取数据成功", productList);
     }

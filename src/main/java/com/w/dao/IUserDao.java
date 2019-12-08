@@ -4,6 +4,7 @@ import com.w.domain.IUser;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -15,9 +16,6 @@ import java.util.List;
  **/
 @Repository
 public interface IUserDao {
-//    查询用户是否存在
-    @Select("select * form user where username = #{iUser.username} and password = #{iUser.password}")
-    IUser IsUserExit(@Param("iUser") IUser IUser);
 
     @Select("select * from user where username = #{name}")
     @Results({
@@ -33,40 +31,56 @@ public interface IUserDao {
                     javaType = java.util.List.class,
                     many = @Many(select="com.w.dao.RoleDao.findRolesByID")),
     })
-    IUser findUserByName(String name);
+    IUser findUserByName(String name) throws SQLException;
+
+    @Select("select username, email from user where telephone = #{telephone}")
+    IUser findUserNameAndEmailByPhone(String telephone);
 
 //    查询指定用户
     @Select("select * from user where username = #{iUser.username} and password = #{iUser.password}")
-    IUser findUser(@Param("iUser") IUser iUser);
+    IUser findUser(@Param("iUser") IUser iUser) throws SQLException;
 
 //    查询所有用户
-    @Select("select * from user")
-    List<IUser> findAll();
+    @Select("select * from user where status = 0 or status = 1")
+    List<IUser> findAll() throws SQLException;
 
 //    查询指定用户
     @Select("select * from user where telephone = #{iUser.telephone} or email = #{iUser.email}")
-    List<IUser> findUserByTelephoneOrEmail();
+    List<IUser> findUserByTelephoneOrEmail() throws SQLException;
     @Select("select * from user where code = #{activeCode}")
-    IUser findByActiveCode(String activeCode);
+    IUser findByActiveCode(String activeCode) throws SQLException;
 
 //    添加用户
-    @Insert("insert into user(username, password, sex, birthday, telephone, email, status, code) " +
-            "values(#{iUser.username}, #{iUser.password}, #{iUser.sex}, #{iUser.birthday}, #{iUser.telephone}, #{iUser.email}, #{iUser.status}, #{iUser.code})")
-    int save(@Param("iUser") IUser iUser);
+    @Insert("insert into user(username, password, sex, birthday, telephone, email, status, code, image) " +
+            "values(" +
+            "#{iUser.username}," +
+            "#{iUser.password}, " +
+            "#{iUser.sex}, " +
+            "#{iUser.birthday}," +
+            "#{iUser.telephone}," +
+            "#{iUser.email}," +
+            "#{iUser.status}, " +
+            "#{iUser.code}," +
+            "#{iUser.image}" +
+            ")")
+    int save(@Param("iUser") IUser iUser) throws SQLException;
 
 //    更新用户信息
     @Update("update user set username = #{iUser.username} ,password = #{iUser.password}, sex = #{iUser.sex}, birthday = #{iUser.birthday}, telephone = #{iUser.telephone}, email = #{iUser.email} where userID = #{iUser.userID}")
-    int updateUser(@Param("iUser") IUser iUser);
+    int updateUser(@Param("iUser") IUser iUser) throws SQLException;
 
 //    修改手机号及密码
-    @Update("update user set password = #{password} where telephone = #{telephone} and email = #{email}")
-    int updatePassword(String telephone, String password);
+    @Update("update user set password = #{password} where telephone = #{telephone}")
+    int updatePassword( @Param("password") String password, @Param("telephone") String telephone) throws SQLException;
 
 //    用户激活
     @Update("update user set status = 1 where code = #{activeCode}")
-    int active(String activeCode);
+    int active(String activeCode) throws SQLException;
 
 //    删除用户
-    @Update("delete from user where username = #{iUser.username} and password = #{iUser.password} and email = {userInfo.email}")
-    int deleteUser(@Param("iUser") IUser iUser);
+    @Update("delete from user where userID = #{userID}")
+    int deleteRealUser(@Param("userID") int userID) throws SQLException;
+
+    @Update("update user set status = 3 where userID = #{userID}")
+    int deleteUser(@Param("userID") int userID) throws SQLException;
 }

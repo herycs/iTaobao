@@ -8,9 +8,9 @@ import java.util.List;
  * @author ming
  */
 public interface PermissionService {
-    public  int addPermission(Permission permission);
-    public  int deletePermission(int permissionID);
-    public  int updatePermission(Permission permission);
-    public List<Permission> findOneByID(int permissionID);
-    public   List<Permission> findAll();
+    public  int addPermission(Permission permission) throws Exception;
+    public  int deletePermission(int permissionID) throws Exception;
+    public  int updatePermission(Permission permission) throws Exception;
+    public List<Permission> findOneByID(int permissionID) throws Exception;
+    public   List<Permission> findAll() throws Exception;
 }

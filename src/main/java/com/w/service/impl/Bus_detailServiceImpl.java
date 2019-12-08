@@ -23,31 +23,31 @@ public class Bus_detailServiceImpl implements Bus_detailService {
 	private Bus_detailDao  bus_detailDao;
 	
 	@Override
-	public int addBus_detail(Bus_detail bus_detail) {
+	public int addBus_detail(Bus_detail bus_detail) throws Exception{
 		int result = bus_detailDao.addBus_detail(bus_detail);
 		return result;
 	}
 
 	@Override
-	public int deleteBus_detail(String bus_detailID) {
+	public int deleteBus_detail(String bus_detailID) throws Exception{
 		int result = bus_detailDao.deleteBus_detail(bus_detailID);
 		return result;
 	}
 
 	@Override
-	public int updateBus_detail(Bus_detail bus_detail) {
+	public int updateBus_detail(Bus_detail bus_detail) throws Exception{
 		int result = bus_detailDao.updateBus_detail(bus_detail);
 		return result;
 	}
 
 	@Override
-	public List<Bus_detail> findAllBus_detail() {
+	public List<Bus_detail> findAllBus_detail() throws Exception{
 		List<Bus_detail> bus_details =  bus_detailDao.findAllBus_detail();
 		return bus_details;
 	}
 
 	@Override
-	public Bus_detail findOneByID(String bus_detailId) {
+	public Bus_detail findOneByID(String bus_detailId) throws Exception{
 		
 		return (Bus_detail) bus_detailDao.findBus_detailByID(bus_detailId);
 	}

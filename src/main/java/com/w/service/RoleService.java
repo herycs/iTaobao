@@ -12,10 +12,10 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface RoleService {
-    int addRole(Role role);
-    int deleRole(int roleID);
-    List<Role> findAll();
-    List<Role> findfindRoleByUserID(int userID);
+    int addRole(Role role) throws Exception;
+    int deleRole(int roleID) throws Exception;
+    List<Role> findAll() throws Exception;
+    List<Role> findfindRoleByUserID(int userID) throws Exception;
 
-    int updateRole(Role role);
+    int updateRole(Role role) throws Exception;
 }

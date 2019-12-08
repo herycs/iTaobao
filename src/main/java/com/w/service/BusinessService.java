@@ -13,13 +13,13 @@ import java.util.List;
  **/
 public interface BusinessService {
 
-    int addBus(Business business);
+    int addBus(Business business) throws Exception;
 
-    int delBus(int busID);
+    int delBus(int busID) throws Exception;
 
-    int updateBus(Business business);
+    int updateBus(Business business) throws Exception;
 
-    List<Business> findAllBuss();
+    List<Business> findAllBuss() throws Exception;
 
-    List<Business> findBusByName(String busName);
+    List<Business> findBusByName(String busName) throws Exception;
 }

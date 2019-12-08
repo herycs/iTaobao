@@ -23,31 +23,31 @@ public class CollectServiceImpl implements CollectService {
 	private CollectDao collectDao;
 	
 	@Override
-	public int addCollect(Collect collect) {
+	public int addCollect(Collect collect) throws Exception{
 		int result = collectDao.addCollect(collect);
 		return result;
 	}
 
 	@Override
-	public int deleteCollect(int collectID) {
+	public int deleteCollect(int collectID) throws Exception{
 		int result = collectDao.deleteCollect(collectID);
 		return result;
 	}
 
 	@Override
-	public int updateCollect(Collect collect) {
+	public int updateCollect(Collect collect) throws Exception{
 		int result = collectDao.updateCollect(collect);
 		return result;
 	}
 
 	@Override
-	public List<Collect> findAllCollect() {
+	public List<Collect> findAllCollect() throws Exception{
 		
 		return collectDao.findAllCollect();
 	}
 
 	@Override
-	public Collect findOneByID(int collectId) {
+	public Collect findOneByID(int collectId) throws Exception{
 		
 		return (Collect) collectDao.findCollectByID(collectId);
 	}

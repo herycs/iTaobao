@@ -22,24 +22,24 @@ public class RepertoryServiceImpl implements RepertoryService {
     private RepertoryDao repertoryDao;
 
     @Override
-    public int addRepertory(Repertory repertory) {
+    public int addRepertory(Repertory repertory) throws Exception{
         int result = repertoryDao.addRepertory(repertory);
         return result;
     }
 
-    public int deleteRepertory(int repertoryID) {
+    public int deleteRepertory(int repertoryID) throws Exception{
         int result = repertoryDao.deleteRepertory(repertoryID);
         return result;
     }
 
     @Override
-    public int updateRepertory(Repertory repertory) {
+    public int updateRepertory(Repertory repertory) throws Exception{
         int result = repertoryDao.updateRepertory(repertory);
         return result;
     }
 
     @Override
-    public List<Repertory> findAll() {
+    public List<Repertory> findAll() throws Exception{
         List<Repertory> results = repertoryDao.findAll();
         return results;
     }

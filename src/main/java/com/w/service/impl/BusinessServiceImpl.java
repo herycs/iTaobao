@@ -22,27 +22,27 @@ public class BusinessServiceImpl implements BusinessService {
     private BusinessDao businessDao;
 
     @Override
-    public int addBus(Business business) {
+    public int addBus(Business business) throws Exception{
         int result = 0;
         result = businessDao.addBusiness(business);
-        if (result != 1) {
+        if (result != 1){
             return -1;
         }
         return result;
     }
 
     @Override
-    public int delBus(int busID) {
+    public int delBus(int busID) throws Exception{
         int result1 = 0;
         result1 = businessDao.deleteBusiness(busID);
-        if (result1 != 1) {
+        if (result1 != 1){
             return -1;
         }
         return result1;
     }
 
     @Override
-    public int updateBus(Business business) {
+    public int updateBus(Business business) throws Exception{
         int result2 = 0;
         result2 = businessDao.updateProduct(business);
         if (result2 != 1) {
@@ -52,14 +52,14 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
-    public List<Business> findAllBuss() {
+    public List<Business> findAllBuss() throws Exception{
         List<Business> busList = null;
         busList = businessDao.findAllBusiness();
         return busList;
     }
 
     @Override
-    public List<Business> findBusByName(String busName) {
+    public List<Business> findBusByName(String busName) throws Exception{
         List<Business> list = null;
         list = businessDao.findBusinessByName(busName);
         return list;

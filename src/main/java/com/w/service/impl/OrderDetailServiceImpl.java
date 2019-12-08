@@ -22,30 +22,30 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     private OrderDetailDao orderDetailDao;
 
     @Override
-    public int addOrderDetail(OrderDetail orderDetail){
+    public int addOrderDetail(OrderDetail orderDetail) throws Exception{
         int result = orderDetailDao.addOrderDetail(orderDetail);
         return result;
     }
 
     @Override
-    public int deleteOrderDatail(OrderDetail orderDetail){
+    public int deleteOrderDatail(OrderDetail orderDetail) throws Exception{
         int result1 = orderDetailDao.deleteOrderDatail(orderDetail);
         return result1;
     }
 
     @Override
-    public  int  updateOrderDetail(OrderDetail orderDetail){
+    public  int  updateOrderDetail(OrderDetail orderDetail) throws Exception{
         int result2 = orderDetailDao.updateOrderDetail(orderDetail);
         return result2;
     }
 
     @Override
-    public List<OrderDetail> findAll(String orderDetailID){
+    public List<OrderDetail> findAll(String orderDetailID) throws Exception{
         List<OrderDetail> orderDetailList = orderDetailDao.findAll(orderDetailID);
         return orderDetailList;
     }
     @Override
-    public   List<OrderDetail> findOne(String orderDetailID){
+    public   List<OrderDetail> findOne(String orderDetailID) throws Exception{
         List<OrderDetail> orderDetailList1 = orderDetailDao.findOne(orderDetailID);
         return orderDetailList1;
     }

@@ -4,6 +4,7 @@ import com.w.domain.Product;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -26,11 +27,11 @@ public interface ProductDao {
             ", #{product.pro_explain}" +
             ", #{product.pro_status}" +
             ")")
-    int addProduct(@Param("product") Product product);
+    int addProduct(@Param("product") Product product) throws SQLException;
 
 //    删除商品
     @Delete("delete from product where pro_ID = #{productID}")
-    int deleteProduct(int productId);
+    int deleteProduct(int productId) throws SQLException;
 
 //    更新商品信息
     @Update("update product set " +
@@ -41,19 +42,19 @@ public interface ProductDao {
             "pro_explain = #{product.pro_explain}," +
             "pro_status = #{product.pro_status}" +
             " where pro_ID = #{product.pro_ID}")
-    int updateProduct(@Param("product") Product product);
+    int updateProduct(@Param("product") Product product) throws SQLException;
 
 //    查询产品
     @Select("select * from product where product_name = #{product.product_name}")
-    List<Product> findProductByName(Product product);
+    List<Product> findProductByName(Product product) throws SQLException;
 
     @Select("select * from product where productID = #{product.productID}")
-    List<Product> findProductByID(Product product);
+    List<Product> findProductByID(Product product) throws SQLException;
 
     @Select("select * from product")
-    List<Product> findAllProduct();
+    List<Product> findAllProduct() throws SQLException;
 
 //    查询商品总数
     @Select("select count(*) from product")
-    int countProductNum();
+    int countProductNum() throws SQLException;
 }

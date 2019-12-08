@@ -23,31 +23,31 @@ public class FavourableServiceImpl implements FavourableService {
 	private FavourableDao favourableDao;
 	
 	@Override
-	public int addFavourable(Favourable favourable) {
+	public int addFavourable(Favourable favourable) throws Exception{
 		int result = favourableDao.addFavourable(favourable);
 		return result;
 	}
 
 	@Override
-	public int deleteFavourable(int favourableID) {
+	public int deleteFavourable(int favourableID) throws Exception{
 		int result = favourableDao.deleteFavourable(favourableID);
 		return result;
 	}
 
 	@Override
-	public int updateFavourable(Favourable favourable) {
+	public int updateFavourable(Favourable favourable) throws Exception{
 		int result = favourableDao.updateFavourable(favourable);
 		return result;
 	}
 
 	@Override
-	public List<Favourable> findAllFavourable() {
+	public List<Favourable> findAllFavourable() throws Exception{
 		
 		return favourableDao.findAllFavourable();
 	}
 
 	@Override
-	public Favourable findOneByID(int favourableId) {
+	public Favourable findOneByID(int favourableId) throws Exception{
 		
 		return (Favourable) favourableDao.findFavourableByID(favourableId);
 	}

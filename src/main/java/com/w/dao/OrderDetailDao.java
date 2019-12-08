@@ -4,6 +4,7 @@ import com.w.domain.OrderDetail;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -23,11 +24,11 @@ public interface OrderDetailDao {
             "#{orderDetail}.pro_ID, " +
             "#{orderDetail}.bus_ID, " +
             "#{orderDetail}.buy_num")
-    int addOrderDetail(OrderDetail orderDetail);
+    int addOrderDetail(OrderDetail orderDetail) throws SQLException;
 
     //delete
     @Delete("delete from where order_detail_ID = #{orderDetail}.order_detail_ID")
-    int deleteOrderDatail(@Param("orderDetail")OrderDetail orderDetail);
+    int deleteOrderDatail(@Param("orderDetail")OrderDetail orderDetail) throws SQLException;
 
     //update
     @Update("update orderDetail set " +
@@ -36,11 +37,11 @@ public interface OrderDetailDao {
             "bus_ID = #{orderDetail}.bus_ID," +
             "buy_num = #{orderDetail}.buy_num where" +
             "order_detail_ID = #{orderDetail}.order_detail_ID")
-    int updateOrderDetail(@Param("orderDetail")OrderDetail orderDetail);
+    int updateOrderDetail(@Param("orderDetail")OrderDetail orderDetail) throws SQLException;
 
     //find
     @Select("select * from orderDetail")
-    List<OrderDetail> findAll(String orderDetailID);
+    List<OrderDetail> findAll(String orderDetailID) throws SQLException;
     @Select("select * from orderDetail where order_detail_ID = #{orderDetailID}")
-    List<OrderDetail> findOne(String orderDetailID);
+    List<OrderDetail> findOne(String orderDetailID) throws SQLException;
 }

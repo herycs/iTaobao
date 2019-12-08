@@ -1,5 +1,8 @@
 package com.w.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -13,15 +16,16 @@ import java.util.List;
 
 //create table user
 //        (
-//        userID               int not null,
+//        userID               int not null auto_increment,
 //        username             varchar(30),
-//        password             varchar(30),
+//        password             varchar(100),
 //        sex                  char(1),
 //        birthday             date,
 //        telephone            varchar(18),
 //        email                varchar(35),
 //        status               char(1),
 //        code                 varchar(100),
+//        image                varchar(100),
 //        primary key (userID)
 //        );
 
@@ -31,11 +35,14 @@ public class IUser {
     private String username;
     private String password;
     private String sex;
+    @JsonFormat(pattern = "yyyy-MM-dd")//用于转换数据库读取数据
+    @DateTimeFormat(pattern = "yyyy-MM-dd")//用于格式化前台传输的数据
     private Date birthday;
     private String telephone;
     private String email;
     private Integer status;
     private String code;
+    private String image;
     private List<Role> roles;
 
     public Integer getUserID() {
@@ -110,27 +117,19 @@ public class IUser {
         this.code = code;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "userID='" + userID + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", sex='" + sex + '\'' +
-                ", birthday=" + birthday +
-                ", telephone='" + telephone + '\'' +
-                ", email='" + email + '\'' +
-                ", status=" + status +
-                ", code='" + code + '\'' +
-                ", roles=" + roles +
-                '}';
     }
 }

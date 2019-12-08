@@ -28,7 +28,7 @@ public class PermissionController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{perID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updatePermission(@PathVariable("perID") int perID, @RequestBody Permission permission){
+    public Result updatePermission(@PathVariable("perID") int perID, @RequestBody Permission permission) throws Exception {
         permission.setPermissionID(perID);
         int result = permissionService.updatePermission(permission);
         if(result == 1){
@@ -40,7 +40,7 @@ public class PermissionController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addPermission(@RequestBody Permission permission){
+    public Result addPermission(@RequestBody Permission permission) throws Exception {
         int result = permissionService.addPermission(permission);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class PermissionController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{perID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deletePermission(@PathVariable("perID") int perID){
+    public Result deletePermission(@PathVariable("perID") int perID) throws Exception {
         int result = permissionService.deletePermission(perID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class PermissionController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List permissionList = permissionService.findAll();
         return new Result(StateCode.SUCCESS, "获取数据成功", permissionList);
     }

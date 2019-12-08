@@ -4,6 +4,7 @@ import com.w.domain.OrderForm;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -25,11 +26,11 @@ public interface OrderFormDao {
                 "#{orderForm.payTime}," +
                 "#{orderForm.orderStatus}" +
             ")")
-    int addOrderForm(@Param("orderForm")OrderForm orderForm);
+    int addOrderForm(@Param("orderForm")OrderForm orderForm) throws SQLException;
 
     //delete
     @Delete("delete from orderform where orderID = #{orderID}")
-    int deleteOrderForm(int orderID);
+    int deleteOrderForm(int orderID) throws SQLException;
 
     //update
     @Update("update orderform set " +
@@ -40,12 +41,12 @@ public interface OrderFormDao {
                 "orderStatus = #{orderForm.orderStatus}" +
                 " where orderID = #{orderForm.orderID}" +
             ")")
-    int updateOrderForm(@Param("orderForm") OrderForm orderForm);
+    int updateOrderForm(@Param("orderForm") OrderForm orderForm) throws SQLException;
 
     //select
     @Select("select * from orderform")
-    List<OrderForm> findAll();
+    List<OrderForm> findAll() throws SQLException;
 
     @Select("select from orderform = where orderID = #{orderID}")
-    List<OrderForm> findOrderFormByID(int orderID);
+    List<OrderForm> findOrderFormByID(int orderID) throws SQLException;
 }

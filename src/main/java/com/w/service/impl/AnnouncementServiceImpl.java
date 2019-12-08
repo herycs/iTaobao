@@ -22,34 +22,34 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     private AnnouncementDao announcementDao;
 
     @Override
-    public int addAnno(Announcement announcement) {
+    public int addAnno(Announcement announcement) throws Exception{
         int result = announcementDao.addAnnouncement(announcement);
         return result;
     }
 
     @Override
-    public int deleteAnno(int anno_ID) {
+    public int deleteAnno(int anno_ID) throws Exception{
         int result1 = announcementDao.deleteAnnouncement(anno_ID);
         return result1;
     }
 
     @Override
-    public int updateAnno(Announcement announcement) {
+    public int updateAnno(Announcement announcement) throws Exception{
         int result2 = announcementDao.updateAnnouncement(announcement);
         return result2;
     }
 
     @Override
-    public List<Announcement> findAll() {
-        return (List<Announcement>)announcementDao.findAllAnnouncement();
+    public List<Announcement> findAll() throws Exception{
+        return announcementDao.findAllAnnouncement();
     }
 
     @Override
-    public List<Announcement> findOneByID(int annoID) {
+    public List<Announcement> findOneByID(int annoID) throws Exception{
 //        从redis中查询
 //        announcement = (List) redisTemplate.opsForValue().get("announcement_"+annoID);
 //        System.out.println("redis查询");
-//        if (announcement == null) {
+//        if (announcement == null) throws Exception{
 //            System.out.println("数据库查询");
 //            announcement = announcementDao.findAnnouncementByID(annoID);
 ////            存入session中并设置存货时间

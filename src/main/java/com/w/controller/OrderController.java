@@ -28,7 +28,7 @@ public class OrderController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{hisID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateOrder(@PathVariable("hisID") int hisID, @RequestBody OrderForm orderForm){
+    public Result updateOrder(@PathVariable("hisID") int hisID, @RequestBody OrderForm orderForm) throws Exception {
     orderForm.setOrderID(hisID);
         int result = orderFormService.updateOrderForm(orderForm);
         if(result == 1){
@@ -40,7 +40,7 @@ public class OrderController {
 //    @RequestMapping("/add.do")
     @RequestMapping( method = RequestMethod.POST)
     @ResponseBody
-    public Result addOrder(@RequestBody OrderForm orderForm){
+    public Result addOrder(@RequestBody OrderForm orderForm) throws Exception {
         int result = orderFormService.addOrderForm(orderForm);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class OrderController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{orderID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteOrder(@PathVariable("orderID") int orderID){
+    public Result deleteOrder(@PathVariable("orderID") int orderID) throws Exception {
         int result = orderFormService.deleteOrderForm(orderID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class OrderController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List orderList = orderFormService.findAll();
         return new Result(StateCode.SUCCESS, "获取数据成功", orderList);
     }

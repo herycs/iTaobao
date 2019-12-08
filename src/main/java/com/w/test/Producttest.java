@@ -5,6 +5,8 @@ import com.w.domain.Product;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.SQLException;
+
 /**
  * @ClassNameProducttest
  * @Description
@@ -18,7 +20,7 @@ public class Producttest {
     private ProductDao productDao;
 
     @Test
-    public void add(){
+    public void add() throws SQLException {
 
         Product product = new Product();
         product.setPro_name("鸡翅");

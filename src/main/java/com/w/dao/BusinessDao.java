@@ -4,6 +4,7 @@ import com.w.domain.Business;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -20,11 +21,11 @@ public interface BusinessDao {
 //    添加
     @Insert("insert into business(bus_detail_ID, bus_Name,bus_address,bus_phone,bus_email,bus_people)" +
             " values(#{business.bus_detail_ID}, #{business.bus_Name}, #{business.bus_address}, #{business.bus_phone}, #{business.bus_email}, #{business.bus_people})")
-    int addBusiness(@Param("business") Business business);
+    int addBusiness(@Param("business") Business business) throws SQLException;
 
 //    删除
     @Delete("delete from business where bus_ID = #{bus_ID}")
-    int deleteBusiness(int bus_ID);
+    int deleteBusiness(int bus_ID) throws SQLException;
 
 //    更新信息
     @Update("update business set " +
@@ -35,19 +36,19 @@ public interface BusinessDao {
             "bus_email = #{business.bus_email}, "+
             "bus_people = #{business.bus_people} "+
             "where bus_ID = #{business.bus_ID}")
-    int updateProduct(@Param("business") Business business);
+    int updateProduct(@Param("business") Business business) throws SQLException;
 
 //    查询
     @Select("select * from business where bus_Name = #{businessName}")
-    List<Business> findBusinessByName(String businessName);
+    List<Business> findBusinessByName(String businessName) throws SQLException;
 
     @Select("select * from business where bus_ID = #{businessID}")
-    List<Business> findBusinessByID(String businessID);
+    List<Business> findBusinessByID(String businessID) throws SQLException;
 
     @Select("select * from business")
-    List<Business> findAllBusiness();
+    List<Business> findAllBusiness() throws SQLException;
 
 //    查询总数
     @Select("select count(*) from business")
-    int countBusinessNum();
+    int countBusinessNum() throws SQLException;
 }

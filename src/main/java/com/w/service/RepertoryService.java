@@ -12,8 +12,8 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface RepertoryService {
-    int addRepertory(Repertory repertory);
-    int deleteRepertory(int repertoryID);
-    int updateRepertory(Repertory repertory);
-    List<Repertory> findAll();
+    int addRepertory(Repertory repertory) throws Exception;
+    int deleteRepertory(int repertoryID) throws Exception;
+    int updateRepertory(Repertory repertory) throws Exception;
+    List<Repertory> findAll() throws Exception;
 }

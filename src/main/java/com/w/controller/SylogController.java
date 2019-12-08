@@ -30,7 +30,7 @@ public class SylogController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAllSyslog(){
+    public Result findAllSyslog() throws Exception {
         List syslogList = syslogService.findAll();
         return new Result(StateCode.SUCCESS , "获取数据成功", syslogList);
     }
@@ -38,7 +38,7 @@ public class SylogController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{sysID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result delSyslog(@PathVariable("sysID") int sysID){
+    public Result delSyslog(@PathVariable("sysID") int sysID) throws Exception {
         int result = 0;
         result = syslogService.delSyslog(sysID);
         if (result == 1){
@@ -49,7 +49,7 @@ public class SylogController {
 
     @RequestMapping(value = "/all",method = RequestMethod.DELETE)
     @ResponseBody
-    public Result delAllSyslog(@RequestBody List<Integer> list){
+    public Result delAllSyslog(@RequestBody List<Integer> list) throws Exception {
         int result = 0;
         for (int i = 0; i < list.size(); i++) {
             result = syslogService.delSyslog(list.get(i));
@@ -63,7 +63,7 @@ public class SylogController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addSyslog( @RequestBody Syslog syslog){
+    public Result addSyslog( @RequestBody Syslog syslog) throws Exception {
         int result = 0;
         result = syslogService.addSyslog(syslog);
         if (result == 1){

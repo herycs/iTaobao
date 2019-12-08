@@ -28,7 +28,7 @@ public class RoleController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addRole(@RequestBody Role role){
+    public Result addRole(@RequestBody Role role) throws Exception {
         int result = roleService.addRole(role);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -39,7 +39,7 @@ public class RoleController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{roleID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteRole(@PathVariable("roleID") int roleID){
+    public Result deleteRole(@PathVariable("roleID") int roleID) throws Exception {
         int result = roleService.deleRole(roleID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -50,7 +50,7 @@ public class RoleController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List roleList = roleService.findAll();
         return new Result(StateCode.SUCCESS ,  "获取数据成功", roleList);
     }
@@ -58,7 +58,7 @@ public class RoleController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{roleID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateRole(@PathVariable("roleID") int roleID, @RequestBody Role role){
+    public Result updateRole(@PathVariable("roleID") int roleID, @RequestBody Role role) throws Exception {
         role.setRoleID(roleID);
         int result = roleService.updateRole(role);
         if(result == 1){

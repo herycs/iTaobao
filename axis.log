@@ -79,3 +79,62 @@
 2019-11-25 20:26:16,898 0      [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==>  Preparing: select * from user 
 2019-11-25 20:26:16,940 42     [           main] DEBUG     com.w.dao.IUserDao.findAll  - ==> Parameters: 
 2019-11-25 20:26:17,012 114    [           main] DEBUG     com.w.dao.IUserDao.findAll  - <==      Total: 19
+2019-12-04 22:15:58,978 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-04 22:15:59,317 339    [           main] INFO      org.mongodb.driver.cluster  - No server chosen by WritableServerSelector from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, serverDescriptions=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2019-12-04 22:15:59,334 356    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2019-12-04 22:15:59,336 358    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, roundTripTimeNanos=711800}
+2019-12-04 22:15:59,349 371    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
+2019-12-06 01:34:00,655 1      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 01:34:00,830 176    [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 01:34:00,932 278    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:5}] to localhost:27017
+2019-12-06 01:34:00,937 283    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2134700}
+2019-12-06 01:34:01,025 371    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:6}] to localhost:27017
+2019-12-06 01:34:39,790 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 01:34:40,091 301    [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 01:34:40,144 354    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:7}] to localhost:27017
+2019-12-06 01:34:40,149 359    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2152700}
+2019-12-06 01:34:40,170 380    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:8}] to localhost:27017
+2019-12-06 01:34:59,516 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 01:34:59,679 163    [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 01:34:59,756 240    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:9}] to localhost:27017
+2019-12-06 01:34:59,762 246    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1796300}
+2019-12-06 01:34:59,790 274    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:10}] to localhost:27017
+2019-12-06 10:07:04,297 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 10:07:04,504 207    [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 10:07:06,508 2211   [localhost:27017] INFO      org.mongodb.driver.cluster  - Exception in monitor thread while connecting to server localhost:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 more
+2019-12-06 10:16:06,101 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 10:16:06,245 144    [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 10:16:06,329 228    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:2}] to localhost:27017
+2019-12-06 10:16:06,332 231    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=913100}
+2019-12-06 10:16:06,373 272    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:3}] to localhost:27017
+2019-12-06 10:22:34,147 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 10:22:34,244 97     [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 10:22:34,263 116    [localhost:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:4}] to localhost:27017
+2019-12-06 10:22:34,265 118    [localhost:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=856700}
+2019-12-06 10:22:34,276 129    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:5}] to localhost:27017
+2019-12-06 11:21:43,032 0      [           main] INFO      org.mongodb.driver.cluster  - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-12-06 11:21:43,126 94     [           main] INFO      org.mongodb.driver.cluster  - Cluster description not yet available. Waiting for 30000 ms before timing out
+2019-12-06 11:21:43,130 98     [127.0.0.1:27017] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:1, serverValue:15}] to 127.0.0.1:27017
+2019-12-06 11:21:43,133 101    [127.0.0.1:27017] INFO      org.mongodb.driver.cluster  - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1009100}
+2019-12-06 11:21:43,145 113    [           main] INFO   org.mongodb.driver.connection  - Opened connection [connectionId{localValue:2, serverValue:16}] to 127.0.0.1:27017
+2019-12-06 22:57:07,110 0      [           main] DEBUG      com.w.dao.IUserDao.active  - ==>  Preparing: update user set status = 1 where code = ? 
+2019-12-06 22:57:07,170 60     [           main] DEBUG      com.w.dao.IUserDao.active  - ==> Parameters: bbcb759ed4ac496d931d338051b826e4(String)
+2019-12-06 22:57:07,229 119    [           main] DEBUG      com.w.dao.IUserDao.active  - <==    Updates: 1

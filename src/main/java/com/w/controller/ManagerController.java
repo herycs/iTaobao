@@ -28,7 +28,7 @@ public class ManagerController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{managerID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateManager(@PathVariable("managerID") int managerID, @RequestBody Manager manager){
+    public Result updateManager(@PathVariable("managerID") int managerID, @RequestBody Manager manager) throws Exception {
         manager.setMan_ID(managerID);
         int result = managerService.updateManager(manager);
         if(result == 1){
@@ -40,7 +40,7 @@ public class ManagerController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addManager(@RequestBody Manager manager){
+    public Result addManager(@RequestBody Manager manager) throws Exception {
         int result = managerService.addManager(manager);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class ManagerController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{managerID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteManager(@PathVariable("managerID") int managerID){
+    public Result deleteManager(@PathVariable("managerID") int managerID) throws Exception {
         int result = managerService.deleteManager(managerID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class ManagerController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List managerList = managerService.findAllManager();
         return new Result(StateCode.SUCCESS, "获取数据成功", managerList);
     }

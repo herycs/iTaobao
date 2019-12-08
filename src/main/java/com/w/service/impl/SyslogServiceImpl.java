@@ -22,20 +22,20 @@ public class SyslogServiceImpl implements SyslogService {
     private SyslogDao syslogDao;
 
     @Override
-    public List<Syslog> findAll() {
+    public List<Syslog> findAll() throws Exception{
         List<Syslog> lists = syslogDao.findAllLogs();
         return lists;
     }
 
     @Override
-    public int delSyslog(int syslogID) {
+    public int delSyslog(int syslogID) throws Exception{
         int result = 0;
         result = syslogDao.delSyslog(syslogID);
         return result;
     }
 
     @Override
-    public int addSyslog(Syslog syslog) {
+    public int addSyslog(Syslog syslog) throws Exception{
         int result = syslogDao.addSyslog(syslog);
         return result;
     }

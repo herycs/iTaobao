@@ -20,22 +20,22 @@ public class ProDetailServiceImpl implements ProDetailService {
     private ProDetailDao proDetailDao;
 
     @Override
-    public int addProDetail(@Param("proDetail") ProDetail proDetail){
+    public int addProDetail(@Param("proDetail") ProDetail proDetail) throws Exception{
         int result = proDetailDao.addProDetail(proDetail);
         return result;
     }
     @Override
-    public  int deleteProDetail(int proDetailID){
+    public  int deleteProDetail(int proDetailID) throws Exception{
         int result1 = proDetailDao.deleteProDetail(proDetailID);
         return result1;
     }
     @Override
-    public  int updateProDetail(@Param("proDetail") ProDetail proDetail){
+    public  int updateProDetail(@Param("proDetail") ProDetail proDetail) throws Exception{
         int result2 = proDetailDao.updateProDetail(proDetail);
         return result2;
     }
     @Override
-    public List<ProDetail> findAllProDetail(){
+    public List<ProDetail> findAllProDetail() throws Exception{
         List<ProDetail> proDetailList = proDetailDao.findAllProDetail();
         return  proDetailList;
     }

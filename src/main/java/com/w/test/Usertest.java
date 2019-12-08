@@ -12,6 +12,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,7 +32,7 @@ public class Usertest {
     }
 
     @Test
-    public void run() throws IOException {
+    public void run() throws IOException, SQLException {
         InputStream input = Resources.getResourceAsStream("user.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = sqlSessionFactory.openSession();
@@ -58,7 +61,7 @@ public class Usertest {
     }
 
     @Test
-    public void run3() throws IOException {
+    public void run3() throws IOException, SQLException {
         InputStream input = Resources.getResourceAsStream("user.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = sqlSessionFactory.openSession();
@@ -72,7 +75,7 @@ public class Usertest {
     }
 
     @Test
-    public void run4() throws IOException {
+    public void run4() throws IOException, SQLException {
         InputStream input = Resources.getResourceAsStream("user.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
         SqlSession session = sqlSessionFactory.openSession();
@@ -84,5 +87,18 @@ public class Usertest {
         int i = iUserDao.updateUser(iUser);
         session.commit();
         System.out.println(i);
+    }
+
+    @Test
+    public void run5() throws Exception {
+        InputStream input = Resources.getResourceAsStream("user.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
+        SqlSession session = sqlSessionFactory.openSession();
+
+        IUserDao iUserDao = session.getMapper(IUserDao.class);
+        IUser iUser = new IUser();
+
+        iUserDao.active("bbcb759ed4ac496d931d338051b826e4");
+
     }
 }

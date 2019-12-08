@@ -2,19 +2,23 @@ package com.w.common.tools;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
-import com.w.domain.FilePOJO;
+import com.w.common.entity.Result;
+import com.w.common.entity.StateCode;
 import com.w.util.UuidUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @ClassNameFileDownloadController
@@ -48,6 +52,8 @@ public class FileDownloadTest {
             this.realName = realName;
         }
     }
+
+
 
     //显示下载文件
     @RequestMapping("/showFiles.do")
@@ -101,6 +107,7 @@ public class FileDownloadTest {
         logger.info("文件"+filename+"下载成功");
         return null;
     }
+
     //字符转码
     private String toUTF8String(String str) {
        StringBuffer stringBuffer = new StringBuffer();
@@ -136,47 +143,49 @@ public class FileDownloadTest {
      * @Date2019/10/29 14:39
      * @Version V1.0
      **/
-    @Controller
-    public static class FileUploadTest {
+//    @Controller
+//    public static class FileUploadTest {
 
         //记录日志的对象
-        private static final Log logger = LogFactory.getLog(FileUploadTest.class);
+//        private static final Log logger = LogFactory.getLog(FileUploadTest.class);
 
-        @RequestMapping("/upload.do")
-        public String UploadFile(@ModelAttribute("file") FilePOJO filePOJO, HttpServletRequest request) throws IOException {
-            String path = request.getServletContext().getRealPath("uploads");
-
-            //文件名操作
-            String newFileName = "";
-            String fileName = filePOJO.getFile().getOriginalFilename();
-
-            if (fileName.length()>0) {
-
-                //设置文件描述,为文件名创建做基础
-                String fileOriginal = fileName.substring(0,fileName.lastIndexOf('.'));
-                String desc = filePOJO.getDesc();
-                //自定义了名称则用自定义的名称，否则用原文件名
-                filePOJO.setDesc(!desc.equals("") ?  desc:fileOriginal);
-
-                //裁剪文件类型
-                String fileType = fileName.substring(fileName.lastIndexOf('.'));
-
-                //创建新文件名
-                newFileName = UuidUtil.getUuid()+'-'+filePOJO.getDesc()+fileType;
-                File targetFile = new File(path, newFileName);
-                if (!targetFile.exists()) {
-                    targetFile.mkdirs();
-                }
-
-                //上传
-                filePOJO.getFile().transferTo(targetFile);
-                logger.info("文件："+fileName+"上传成功");
-            }else{
-                System.out.println("文件名认证不通过");
-                request.setAttribute("file", "success");
-                logger.info("文件："+fileName+"上传失败");
-            }
-            return "ok";
-        }
-    }
+//        @RequestMapping("/upload.do")
+//        @ResponseBody
+//        public Result UploadFile(@ModelAttribute("file") FilePOJO filePOJO, HttpServletRequest request) throws IOException {
+////
+////            String folderName = new SimpleDateFormat("yyyy-mm-dd").format(new Date());
+////            String path = request.getServletContext().getRealPath("uploads\\"+folderName);
+////            System.out.println(path);
+////            //文件名操作
+////            String newFileName = "";
+////            String fileName = filePOJO.getFile().getOriginalFilename();
+////
+////            if (fileName.length()>0) {
+////
+////                //设置文件描述,为文件名创建做基础
+////                String fileOriginal = fileName.substring(0,fileName.lastIndexOf('.'));
+////                String desc = filePOJO.getDesc();
+////                //自定义了名称则用自定义的名称，否则用原文件名
+////                filePOJO.setDesc(!desc.equals("") ?  desc:fileOriginal);
+////
+////                //裁剪文件类型
+////                String fileType = fileName.substring(fileName.lastIndexOf('.'));
+////
+////                //创建新文件名
+////                newFileName = UuidUtil.getUuid()+'-'+filePOJO.getDesc()+fileType;
+////                File targetFile = new File(path, newFileName);
+////                if (!targetFile.exists()) {
+////                    targetFile.mkdirs();
+////                }
+////
+////                //上传
+////                filePOJO.getFile().transferTo(targetFile);
+////                logger.info("文件："+fileName+"上传成功");
+////                return new Result(StateCode.SUCCESS, "文件"+fileName+"上传成功");
+////            }else{
+////                logger.info("文件："+fileName+"上传失败");
+////                return new Result(StateCode.SUCCESS, "文件"+fileName+"上传失败");
+////            }
+////        }
+//    }
 }

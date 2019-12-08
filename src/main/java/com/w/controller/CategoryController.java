@@ -28,7 +28,7 @@ public class CategoryController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{cateID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateCate(@PathVariable("cateID")int cateID, @RequestBody Category category){
+    public Result updateCate(@PathVariable("cateID")int cateID, @RequestBody Category category) throws Exception {
         category.setCate_ID(cateID);
         int result = categoryService.updateCategory(category);
         if(result == 1){
@@ -40,7 +40,7 @@ public class CategoryController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addCate(@RequestBody Category category){
+    public Result addCate(@RequestBody Category category) throws Exception {
         int result = categoryService.addCategory(category);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class CategoryController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{cateID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteCate(@PathVariable("cateID") int cateID){
+    public Result deleteCate(@PathVariable("cateID") int cateID) throws Exception {
         int result = categoryService.deleteCategory(cateID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class CategoryController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List categoryList = categoryService.findAllCategory();
         return new Result(StateCode.SUCCESS, "数据获取成功", categoryList);
     }

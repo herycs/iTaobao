@@ -28,7 +28,7 @@ public class BusinessController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAllBus(){
+    public Result findAllBus() throws Exception {
         List bussinessList = businessService.findAllBuss();
         return new Result(StateCode.SUCCESS, "获取数据成功", bussinessList);
     }
@@ -36,7 +36,7 @@ public class BusinessController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addBus(@RequestBody Business business){
+    public Result addBus(@RequestBody Business business) throws Exception {
         int result = 0;
         result = businessService.addBus(business);
         if (result == 1){
@@ -48,7 +48,7 @@ public class BusinessController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{busID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result delBus(@PathVariable("busID") int busID){
+    public Result delBus(@PathVariable("busID") int busID) throws Exception {
         int result = 0;
         result = businessService.delBus(busID);
         if (result == 1){
@@ -60,7 +60,7 @@ public class BusinessController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{busID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateBus(@PathVariable("busID") int busID, @RequestBody Business business){
+    public Result updateBus(@PathVariable("busID") int busID, @RequestBody Business business) throws Exception {
         business.setBus_ID(busID);
         int result = 0;
         result = businessService.updateBus(business);

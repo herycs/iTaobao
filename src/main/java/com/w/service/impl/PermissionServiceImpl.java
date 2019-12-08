@@ -22,27 +22,27 @@ public class PermissionServiceImpl implements PermissionService{
     private PermissionDao permissionDao;
 
     @Override
-    public  int addPermission(Permission permission){
+    public  int addPermission(Permission permission) throws Exception{
         int result = permissionDao.addPermission(permission);
         return result;
     }
     @Override
-    public  int deletePermission(int permissionID){
+    public  int deletePermission(int permissionID) throws Exception{
         int result1 = permissionDao.deletePermission(permissionID);
         return result1;
     }
     @Override
-    public  int updatePermission(Permission permission){
+    public  int updatePermission(Permission permission) throws Exception{
         int result2 = permissionDao.updatePermission(permission);
         return result2;
     }
     @Override
-    public List<Permission> findOneByID(int permissionID){
+    public List<Permission> findOneByID(int permissionID) throws Exception{
         List<Permission> permissionList = permissionDao.findOneByID(permissionID);
         return permissionList;
     }
     @Override
-    public   List<Permission> findAll(){
+    public   List<Permission> findAll() throws Exception{
         List<Permission> permissionList1 = permissionDao.findAll();
         return permissionList1;
     }

@@ -28,7 +28,7 @@ public class CreditsController {
 //    @RequestMapping("/update.do")
     @RequestMapping(value = "/{creID}", method = RequestMethod.PUT)
     @ResponseBody
-    public Result updateCredits(@PathVariable("creID") int creID, @RequestBody Credits credits){
+    public Result updateCredits(@PathVariable("creID") int creID, @RequestBody Credits credits) throws Exception {
         credits.setCreditsID(creID);
         int result = creditsService.updateCredits(credits);
         if(result == 1){
@@ -40,7 +40,7 @@ public class CreditsController {
 //    @RequestMapping("/add.do")
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result addCredits(@RequestBody Credits credits){
+    public Result addCredits(@RequestBody Credits credits) throws Exception {
         int result = creditsService.addCredits(credits);
         if (result == 1){
             return Result.getAddSuccessData();
@@ -51,7 +51,7 @@ public class CreditsController {
 //    @RequestMapping("/del.do")
     @RequestMapping(value = "/{creID}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result deleteCredits(@PathVariable("creID") int creditsID){
+    public Result deleteCredits(@PathVariable("creID") int creditsID) throws Exception {
         int result = creditsService.deleteCredits(creditsID);
         if (result == 1){
             return Result.getDeleteSuccessData();
@@ -62,7 +62,7 @@ public class CreditsController {
 //    @RequestMapping("/findAll.do")
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List creditsList = creditsService.findAllCredits();
         return new Result(StateCode.SUCCESS, "获取数据成功", creditsList);
     }
