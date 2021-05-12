@@ -24,7 +24,7 @@
     <mybatis.version>3.4.5</mybatis.version>
     <druid.version>1.1.11</druid.version>
     <jackson.version>2.9.5</jackson.version>
-    <spring.security.version>5.0.6.RELEASE</spring.security.version>
+    <spring.security.version>5.2.10.RELEASE</spring.security.version>
     <validation.version>1.1.0.Final</validation.version>
     <hibernate.version>4.3.0.Final</hibernate.version>
     <fileupl.version>1.3.1</fileupl.version>
